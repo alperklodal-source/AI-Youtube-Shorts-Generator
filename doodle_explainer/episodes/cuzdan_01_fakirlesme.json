@@ -1,0 +1,161 @@
+{
+  "series": "CÜZDAN DOSYALARI",
+  "episode": 1,
+  "tts": "voxcpm",
+  "voxcpm": {"voice": "eglenceli_anlatici", "seed": 22, "timesteps": 10, "cfg": 2.0, "retries": 2, "min_similarity": 0.85},
+  "music": "fun",
+  "music_gain": 0.08,
+  "caption_y": 1470,
+  "thumb_at": 0.03,
+  "meta": {
+    "title": "Maaşın Neden Ayın 15'inde Bitiyor? 💸 (Machiavelli 500 Yıl Önce Söylemiş!) #shorts",
+    "description": "Çalışıyoruz ama neden fakirleşiyoruz? Enflasyon, dolar, kira ve 'merdiven-asansör yarışı'nı 60 saniyede anlattık. Sonunda Machiavelli'nin Prens'ten 500 yıllık bir sözü var.\n\nVeriler: TÜİK Ekim 2026 TÜFE (yıllık %29,77), 2026 net asgari ücret 28.075,50 TL, BES-AR Kasım 2026 açlık sınırı 50.754 TL, dolar/TL ≈ 50,4 (18 Kasım 2026). Sepet örneği temsilîdir.\nAlıntı: Niccolò Machiavelli, Prens (1513), 17. Bölüm.\n\nBu video yatırım tavsiyesi değildir.",
+    "hashtags": ["#shorts", "#ekonomi", "#enflasyon", "#asgariücret", "#machiavelli", "#cüzdandosyaları", "#bilgi"]
+  },
+  "scenes": [
+    {
+      "bg": "alert",
+      "text": "Maaşın neden ayın 15'inde bitiyor? Gel, 1 dakikada anlatayım!",
+      "elements": [
+        {"type": "wallet", "size": 420, "mood": "sleepy", "x": 540, "y": 700, "in": "drop", "loop": "wiggle"},
+        {"type": "calendar", "top": "AYIN", "text": "15'i", "text_scale": 0.36, "size": 280, "x": 820, "y": 1080, "in": "pop", "at": 0.3, "rot": 8},
+        {"type": "stamp", "text": "BİTTİ!", "size": 120, "x": 300, "y": 1090, "rot": -10, "in": "stamp", "at": 0.45}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Diyelim ki asgari ücretlisin. Hesaba 28 bin lira yattı. Kral gibisin!",
+      "say": "Diyelim ki asgari ücretlisin. Hesaba yirmi sekiz bin lira yattı. Kral gibisin!",
+      "elements": [
+        {"type": "person", "kind": "plain", "size": 560, "mood": "happy", "pose": "up", "x": 300, "y": 1040, "in": "slide_l", "loop": "bob"},
+        {"type": "banknote", "size": 380, "count": 5, "text": "200", "x": 760, "y": 640, "in": "drop", "at": 0.3, "loop": "float"},
+        {"type": "label", "text": "28.075 ₺", "size": 110, "x": 760, "y": 920, "in": "pop", "at": 0.45, "color": [120, 255, 140]},
+        {"type": "label", "text": "kral!", "size": 90, "x": 300, "y": 520, "in": "pop", "at": 0.8, "color": [255, 214, 48], "rot": -8}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Sonra markete giriyorsun. Geçen yıl 100 liraya doldurduğun sepet... bugün 130 lira!",
+      "say": "Sonra markete giriyorsun. Geçen yıl yüz liraya doldurduğun sepet... bugün yüz otuz lira!",
+      "elements": [
+        {"type": "cart", "size": 460, "items": 3, "x": 330, "y": 900, "in": "slide_l", "loop": "bob", "loop_amp": 0.5},
+        {"type": "pricetag", "size": 280, "text": "100 ₺", "x": 780, "y": 620, "in": "pop", "at": 0.3},
+        {"type": "cross", "size": 220, "x": 780, "y": 620, "in": "stamp", "at": 0.62},
+        {"type": "pricetag", "size": 320, "text": "130 ₺", "color": [255, 120, 100], "x": 760, "y": 980, "in": "stamp", "at": 0.75, "loop": "shake", "loop_amp": 0.6}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Buna enflasyon diyoruz. Ekimde yıllık yüzde 29,77. Yani paran her gün biraz eriyor.",
+      "elements": [
+        {"type": "coin", "size": 380, "mood": "scared", "melt": 1, "x": 300, "y": 860, "in": "pop", "loop": "shake", "loop_amp": 0.5},
+        {"type": "bigtext", "text": "%29,77", "size": 210, "x": 700, "y": 580, "in": "stamp", "at": 0.4},
+        {"type": "label", "text": "eriyorum!", "size": 90, "x": 740, "y": 1000, "in": "pop", "at": 0.8, "color": [255, 214, 48], "rot": 6}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Neden olur? Ortada mal aynı kalırken para çoğalırsa, her şeyin fiyatı şişer.",
+      "elements": [
+        {"type": "printer", "size": 480, "x": 330, "y": 820, "in": "pop", "loop": "shake", "loop_amp": 0.4, "sfx": "zap"},
+        {"type": "banknote", "size": 260, "count": 3, "text": "₺", "x": 760, "y": 640, "in": "pop", "at": 0.35, "loop": "float"},
+        {"type": "banknote", "size": 260, "count": 3, "text": "₺", "x": 800, "y": 980, "in": "pop", "at": 0.5, "loop": "float"},
+        {"type": "simit", "size": 240, "x": 330, "y": 1220, "in": "pop", "at": 0.7, "loop": "pulse", "loop_amp": 2},
+        {"type": "label", "text": "simit aynı simit!", "size": 72, "x": 680, "y": 1250, "in": "pop", "at": 0.8, "color": [255, 214, 48]}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Bir de dolar meselesi var. Benzin, elektrik, telefon... çoğu dolarla geliyor.",
+      "elements": [
+        {"type": "bigtext", "text": "$", "size": 360, "x": 540, "y": 600, "in": "stamp", "color": [120, 255, 140], "loop": "pulse"},
+        {"type": "icon", "what": "bulb", "size": 220, "x": 230, "y": 1000, "in": "pop", "at": 0.35},
+        {"type": "icon", "what": "phone", "size": 220, "x": 540, "y": 1040, "in": "pop", "at": 0.5},
+        {"type": "icon", "what": "plane", "size": 240, "x": 850, "y": 1000, "in": "pop", "at": 0.65}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Ocakta asgari ücret 655 dolardı. Bugün 557 dolar. Maaş aynı, ama sen küçüldün!",
+      "say": "Ocakta asgari ücret altı yüz elli beş dolardı. Bugün beş yüz elli yedi dolar. Maaş aynı, ama sen küçüldün!",
+      "elements": [
+        {"type": "label", "text": "Ocak: 655 $", "size": 96, "x": 300, "y": 500, "in": "pop", "color": [120, 255, 140]},
+        {"type": "person", "kind": "plain", "size": 560, "mood": "happy", "pose": "down", "x": 300, "y": 960, "in": "pop", "until": 0.55},
+        {"type": "label", "text": "Bugün: 557 $", "size": 96, "x": 760, "y": 500, "in": "pop", "at": 0.4, "color": [255, 120, 100]},
+        {"type": "person", "kind": "plain", "size": 300, "mood": "shocked", "pose": "up", "x": 760, "y": 1100, "in": "pop", "at": 0.55, "loop": "shake", "loop_amp": 0.6},
+        {"type": "label", "text": "küçüldüm!", "size": 80, "x": 760, "y": 850, "in": "pop", "at": 0.85, "color": [255, 214, 48]}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Zam yılda bir gelir, fiyatlar her gün koşar. Merdivenle asansörün yarışı gibi!",
+      "elements": [
+        {"type": "planks", "size": 300, "x": 280, "y": 1180, "in": "pop", "rot": -20},
+        {"type": "person", "kind": "kid", "size": 420, "mood": "sleepy", "pose": "down", "x": 280, "y": 1060, "move": [300, 980], "move_t": [0.2, 1.0], "in": "slide_l"},
+        {"type": "label", "text": "MAAŞ", "size": 90, "x": 280, "y": 760, "in": "pop", "at": 0.15, "color": [120, 255, 140]},
+        {"type": "pricetag", "size": 300, "text": "FİYAT", "text_scale": 0.2, "color": [255, 120, 100], "x": 760, "y": 1200, "move": [760, 470], "move_t": [0.3, 0.9], "in": "pop", "at": 0.25},
+        {"type": "label", "text": "VIIIN!", "size": 90, "x": 780, "y": 920, "in": "pop", "at": 0.6, "color": [255, 214, 48], "rot": 8}
+      ]
+    },
+    {
+      "bg": "alert",
+      "text": "Açlık sınırı 50 bin 754 lira. Asgari ücret bunun ancak yüzde 55'ini karşılıyor.",
+      "say": "Açlık sınırı elli bin yedi yüz elli dört lira. Asgari ücret bunun ancak yüzde elli beşini karşılıyor.",
+      "elements": [
+        {"type": "frame", "lines": ["AÇLIK SINIRI", "50.754 ₺"], "size": 460, "font": 84, "x": 540, "y": 560, "in": "drop"},
+        {"type": "frame", "lines": ["MAAŞ", "28.075 ₺"], "size": 360, "font": 76, "paper": [200, 240, 200], "x": 330, "y": 1020, "in": "pop", "at": 0.4, "rot": -4},
+        {"type": "stamp", "text": "%55", "size": 150, "x": 780, "y": 1020, "rot": 10, "in": "stamp", "at": 0.75}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Bir de kira var. Ev sahibinin aklı hep o tavanda: yüzde 31!",
+      "say": "Bir de kira var. Ev sahibinin aklı hep o tavanda: yüzde otuz bir!",
+      "elements": [
+        {"type": "house", "size": 520, "mood": "evil", "x": 540, "y": 820, "in": "drop", "loop": "bob"},
+        {"type": "bigtext", "text": "+%31", "size": 200, "x": 540, "y": 400, "in": "stamp", "at": 0.6, "color": [255, 120, 100]},
+        {"type": "person", "kind": "plain", "size": 360, "mood": "scared", "pose": "up", "x": 180, "y": 1180, "in": "slide_l", "at": 0.3, "loop": "shake", "loop_amp": 0.5}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Sonuç: Çalışıyorsun ama fakirleşiyorsun. Ekonomistler buna reel kayıp diyor. Biz cüzdan erimesi diyoruz!",
+      "elements": [
+        {"type": "wallet", "size": 440, "mood": "sleepy", "x": 540, "y": 760, "in": "pop", "loop": "wiggle"},
+        {"type": "stamp", "text": "REEL KAYIP", "size": 100, "x": 540, "y": 430, "rot": -6, "in": "stamp", "at": 0.45},
+        {"type": "label", "text": "cüzdan erimesi", "size": 88, "x": 540, "y": 1120, "in": "pop", "at": 0.8, "color": [255, 214, 48]}
+      ]
+    },
+    {
+      "bg": "paper",
+      "text": "Peki bunu 500 yıl önce kim fark etmiş? Machiavelli! Prens kitabında diyor ki...",
+      "say": "Peki bunu beş yüz yıl önce kim fark etmiş? Makyavelli! Prens kitabında diyor ki...",
+      "elements": [
+        {"type": "person", "kind": "renaissance", "size": 600, "mood": "smug", "pose": "hold", "x": 330, "y": 1000, "in": "slide_l", "loop": "bob", "loop_amp": 0.5},
+        {"type": "frame", "lines": ["PRENS", "1513"], "size": 340, "font": 90, "paper": [130, 40, 40], "ink": [255, 230, 160], "x": 790, "y": 760, "in": "drop", "at": 0.45, "rot": 6},
+        {"type": "label", "text": "Machiavelli", "size": 90, "x": 330, "y": 460, "in": "pop", "at": 0.35, "color": [60, 30, 30], "underline": true}
+      ]
+    },
+    {
+      "bg": "paper",
+      "text": "İnsanlar babalarının ölümünü, miraslarının kaybından daha çabuk unuturlar.",
+      "lead": 0.3,
+      "tail": 0.6,
+      "elements": [
+        {"type": "frame", "lines": ["İnsanlar babalarının", "ölümünü, miraslarının", "kaybından daha", "çabuk unuturlar."], "size": 860, "font": 80, "paper": [250, 244, 225], "x": 540, "y": 800, "in": "fade"},
+        {"type": "label", "text": "- Prens, 17. Bölüm", "size": 64, "x": 640, "y": 1180, "in": "fade", "at": 0.5, "color": [90, 50, 40]}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Yani kural 500 yıldır aynı: İnsan her şeyi unutur, cebine dokunanı asla! Takip et.",
+      "say": "Yani kural beş yüz yıldır aynı: İnsan her şeyi unutur, cebine dokunanı asla! Takip et.",
+      "tail": 0.7,
+      "elements": [
+        {"type": "coin", "size": 360, "mood": "smug", "x": 540, "y": 680, "in": "pop", "loop": "bob"},
+        {"type": "label", "text": "cebine dokunanı asla!", "size": 84, "x": 540, "y": 980, "in": "pop", "at": 0.45, "color": [255, 214, 48]},
+        {"type": "stamp", "text": "TAKİP ET!", "size": 130, "x": 540, "y": 1180, "rot": -6, "in": "stamp", "at": 0.75, "color": [60, 220, 90]}
+      ]
+    }
+  ]
+}

@@ -427,6 +427,134 @@ def el_light(p, rng, t):
     return im, (c, c)
 
 
+@element("coin")
+def el_coin(p, rng, t):
+    """A Turkish lira coin character."""
+    s = p.get("size", 300)
+    im, d = canvas(s * 1.2, s * 1.2)
+    c, r = s * 0.6, s / 2
+    melt = p.get("melt", 0)
+    if melt:
+        for k in range(4):
+            x = c - r * 0.6 + k * r * 0.4
+            line(d, [(x, c + r * 0.5), (x + rng.uniform(-4, 4), c + r * (0.8 + melt * 0.4 * (k % 2 + 1)))], rng, s * 0.08, (230, 180, 40, 255))
+    ellipse(d, c, c, r, r, rng, fill=(240, 196, 50, 255), w=7, wob=0.02)
+    ellipse(d, c, c, r * 0.8, r * 0.8, rng, outline=(200, 150, 30, 255), w=5, wob=0.02)
+    d.text((c, c - r * 0.42), "₺" if p.get("symbol", True) else "", font=font(int(r * 0.55)), fill=(170, 110, 20, 255), anchor="mm")
+    face(d, c, c + r * 0.15, r * 0.55, p.get("mood", "happy"), rng)
+    return im, (c, c)
+
+
+@element("banknote")
+def el_banknote(p, rng, t):
+    s = p.get("size", 380)
+    n = p.get("count", 1)
+    im, d = canvas(s * 1.1, s * 0.55 + n * 10)
+    for k in range(n):
+        y0 = s * 0.05 + (n - 1 - k) * 10
+        rect(d, s * 0.05, y0, s * 1.05, y0 + s * 0.45, rng, fill=(120, 190, 130, 255), w=5, skew=3)
+    y0 = s * 0.05
+    ellipse(d, s * 0.55, y0 + s * 0.225, s * 0.12, s * 0.12, rng, outline=(40, 110, 60, 255), w=4)
+    hand_text(d, (s * 0.25, y0 + s * 0.12), p.get("text", "200"), int(s * 0.13), rng, fill=(30, 90, 50, 255))
+    hand_text(d, (s * 0.85, y0 + s * 0.35), "₺", int(s * 0.15), rng, fill=(30, 90, 50, 255))
+    return im, (s * 0.55, s * 0.3)
+
+
+@element("cart")
+def el_cart(p, rng, t):
+    s = p.get("size", 420)
+    im, d = canvas(s * 1.1, s)
+    shape(d, [(s * 0.15, s * 0.25), (s * 0.95, s * 0.25), (s * 0.85, s * 0.62), (s * 0.25, s * 0.62)], rng,
+          fill=(200, 210, 225, 160), w=6)
+    for k in range(1, 5):
+        x = s * (0.15 + 0.16 * k)
+        line(d, [(x, s * 0.27), (x - s * 0.02, s * 0.6)], rng, 3, INK)
+    line(d, [(s * 0.02, s * 0.12), (s * 0.15, s * 0.25)], rng, 6, INK)
+    line(d, [(s * 0.25, s * 0.62), (s * 0.3, s * 0.75), (s * 0.85, s * 0.75)], rng, 6, INK)
+    for x in (0.35, 0.78):
+        ellipse(d, s * x, s * 0.83, s * 0.06, s * 0.06, rng, fill=INK, w=0)
+    items = p.get("items", 3)
+    cols = [(230, 80, 60, 255), (250, 200, 60, 255), (120, 190, 90, 255), (240, 240, 230, 255)]
+    for k in range(items):
+        ellipse(d, s * (0.32 + 0.17 * k), s * 0.2, s * 0.09, s * 0.1, rng, fill=cols[k % 4], w=4)
+    return im, (s * 0.55, s * 0.5)
+
+
+@element("pricetag")
+def el_pricetag(p, rng, t):
+    s = p.get("size", 300)
+    im, d = canvas(s * 1.2, s * 0.7)
+    shape(d, [(s * 0.05, s * 0.35), (s * 0.25, s * 0.08), (s * 1.12, s * 0.08), (s * 1.12, s * 0.62), (s * 0.25, s * 0.62)],
+          rng, fill=rgba(p.get("color"), (255, 230, 90, 255)), w=6)
+    ellipse(d, s * 0.25, s * 0.35, s * 0.05, s * 0.05, rng, fill=WHITE, w=4)
+    hand_text(d, (s * 0.7, s * 0.35), p.get("text", "100 ₺"), int(s * p.get("text_scale", 0.24)), rng, fill=INK)
+    return im, (s * 0.6, s * 0.35)
+
+
+@element("house")
+def el_house(p, rng, t):
+    s = p.get("size", 460)
+    im, d = canvas(s, s)
+    rect(d, s * 0.15, s * 0.45, s * 0.85, s * 0.95, rng, fill=(230, 200, 160, 255), w=6)
+    shape(d, [(s * 0.06, s * 0.48), (s * 0.5, s * 0.08), (s * 0.94, s * 0.48)], rng, fill=(190, 60, 50, 255), w=6)
+    rect(d, s * 0.42, s * 0.7, s * 0.58, s * 0.95, rng, fill=(120, 80, 50, 255), w=4)
+    for x in (0.27, 0.73):
+        rect(d, s * x - s * 0.08, s * 0.53, s * x + s * 0.08, s * 0.66, rng, fill=(150, 210, 255, 255), w=4)
+    if p.get("mood"):  # windows become eyes
+        face(d, s * 0.5, s * 0.62, s * 0.22, p["mood"], rng)
+    return im, (s / 2, s / 2)
+
+
+@element("printer")
+def el_printer(p, rng, t):
+    """Money printing machine; spits banknotes."""
+    s = p.get("size", 460)
+    im, d = canvas(s * 1.2, s)
+    rect(d, s * 0.1, s * 0.25, s * 0.9, s * 0.75, rng, fill=(110, 115, 130, 255), w=7)
+    rect(d, s * 0.2, s * 0.35, s * 0.5, s * 0.5, rng, fill=(40, 40, 50, 255), w=4)
+    hand_text(d, (s * 0.35, s * 0.43), "₺₺₺", int(s * 0.08), rng, fill=(120, 255, 140, 255))
+    for k in range(3):
+        ellipse(d, s * (0.62 + k * 0.08), s * 0.42, s * 0.03, s * 0.03, rng, fill=[RED, YELLOW, GREEN][k], w=2)
+    rect(d, s * 0.85, s * 0.5, s * 1.15, s * 0.6, rng, fill=(120, 190, 130, 255), w=4)
+    for x in (0.25, 0.75):
+        line(d, [(s * x, s * 0.75), (s * x, s * 0.92)], rng, 8, INK)
+    hand_text(d, (s * 0.5, s * 0.15), p.get("label", "PARA"), int(s * 0.12), rng, fill=WHITE, stroke=4, stroke_fill=INK)
+    return im, (s * 0.6, s * 0.5)
+
+
+@element("wallet")
+def el_wallet(p, rng, t):
+    s = p.get("size", 360)
+    im, d = canvas(s * 1.2, s)
+    rect(d, s * 0.1, s * 0.25, s * 1.05, s * 0.8, rng, fill=(120, 75, 40, 255), w=7)
+    shape(d, [(s * 0.1, s * 0.25), (s * 1.05, s * 0.25), (s * 0.95, s * 0.5), (s * 0.2, s * 0.5)], rng, fill=(150, 95, 50, 255), w=5)
+    if p.get("empty", True):
+        for k in range(2):  # moths flying out
+            x, y = s * (0.45 + k * 0.3), s * (0.12 - k * 0.04)
+            ellipse(d, x - s * 0.04, y, s * 0.05, s * 0.03, rng, fill=(220, 210, 190, 255), w=3)
+            ellipse(d, x + s * 0.04, y, s * 0.05, s * 0.03, rng, fill=(220, 210, 190, 255), w=3)
+            line(d, [(x, y - s * 0.02), (x, y + s * 0.03)], rng, 4, INK)
+    if p.get("mood"):
+        face(d, s * 0.58, s * 0.62, s * 0.16, p["mood"], rng)
+    return im, (s * 0.58, s * 0.5)
+
+
+@element("simit")
+def el_simit(p, rng, t):
+    s = p.get("size", 260)
+    im, d = canvas(s, s)
+    c = s / 2
+    ellipse(d, c, c, s * 0.42, s * 0.42, rng, fill=(200, 120, 50, 255), w=6)
+    ellipse(d, c, c, s * 0.16, s * 0.16, rng, fill=(0, 0, 0, 0), w=5)
+    d.ellipse([c - s * 0.15, c - s * 0.15, c + s * 0.15, c + s * 0.15], fill=(0, 0, 0, 0))
+    for _ in range(22):
+        a = rng.uniform(0, 6.28)
+        r = rng.uniform(s * 0.22, s * 0.38)
+        x, y = c + r * math.cos(a), c + r * math.sin(a)
+        d.ellipse([x - 3, y - 2, x + 3, y + 2], fill=(250, 240, 210, 255))
+    return im, (c, c)
+
+
 @element("blackhole")
 def el_blackhole(p, rng, t):
     s = p.get("size", 500)
@@ -506,7 +634,7 @@ def el_person(p, rng, t):
     hy = top + hr + s * 0.04
     coat = rgba(p.get("coat"), {"scientist": (90, 70, 60), "miner": (70, 90, 140), "operator": (60, 60, 70),
                                   "agent": (30, 30, 36), "caveman": (150, 100, 50), "king": (160, 30, 60),
-                                  "kid": (220, 80, 80)}.get(kind, (80, 110, 160)), )
+                                  "kid": (220, 80, 80), "renaissance": (25, 22, 28)}.get(kind, (80, 110, 160)), )
     sh_y = hy + hr + s * 0.05
     hip_y = s * 0.72
     # legs
@@ -580,6 +708,11 @@ def el_person(p, rng, t):
                   (cx + hr * 0.8, hy - hr * 0.7)], rng, fill=YELLOW, w=5)
     elif kind == "kid":
         shape(d, blob_pts(cx, hy - hr * 0.7, hr * 0.9, hr * 0.35, rng, 0.2), rng, fill=(200, 140, 60, 255), w=4)
+    elif kind == "renaissance":  # red cap, short dark hair, black robe with white collar
+        shape(d, blob_pts(cx, hy - hr * 0.2, hr * 0.98, hr * 0.7, rng, 0.08), rng, fill=(40, 30, 25, 255), w=0)
+        ellipse(d, cx, hy + hr * 0.05, hr * 0.82, hr * 0.88, rng, fill=SKIN, w=5)
+        shape(d, blob_pts(cx, hy - hr * 0.85, hr * 1.05, hr * 0.38, rng, 0.1), rng, fill=(170, 25, 30, 255), w=5)
+        line(d, [(cx - hr * 0.5, hy + hr * 1.05), (cx + hr * 0.5, hy + hr * 1.05)], rng, s * 0.03, WHITE)
     if kind != "agent":
         face(d, cx, hy + hr * 0.1 if kind != "scientist" else hy - hr * 0.05, hr * 0.7, p.get("mood", "neutral"), rng)
     else:
