@@ -1,0 +1,24 @@
+{
+ "lines": [
+  "This sixteen-hundred-year-old Roman cup is green...",
+  "until you shine a light inside it.",
+  "It's the only complete one ever found. For decades, nobody knew why it changed.",
+  "In nineteen ninety, an electron microscope finally looked inside the glass.",
+  "Gold and silver particles... a thousand times thinner than a human hair.",
+  "Light hits them... and the colour flips.",
+  "Today, we'd call that nanotechnology. In the fourth century.",
+  "And no Roman could ever have seen them... they're smaller than a wavelength of light.",
+  "So... genius Roman chemistry, or a lucky accident?"
+ ],
+ "gaps": [
+  0.1,
+  0.35,
+  0.22,
+  0.15,
+  0.2,
+  0.22,
+  0.25,
+  0.25,
+  0.0
+ ]
+}
