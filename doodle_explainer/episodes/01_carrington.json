@@ -1,0 +1,194 @@
+{
+  "series": "KIYAMET DOSYALARI",
+  "episode": 1,
+  "tts": "chatterbox",
+  "chatterbox": {"lang": "tr", "exaggeration": 0.7, "cfg_weight": 0.35, "temperature": 0.8, "seed": 3, "retries": 3, "min_similarity": 0.85},
+  "speed": 1.06,
+  "caption_y": 1470,
+  "voice": "tr_TR-dfki-medium",
+  "length_scale": 0.82,
+  "music": "mystery",
+  "thumb_at": 0.03,
+  "meta": {
+    "title": "Güneş İnterneti Kapatabilir! (Ve Bunu Daha Önce Yaptı) ☀️💥",
+    "description": "1 Eylül 1859: Carrington Olayı. Telgraf telleri kıvılcım saçtı, kutup ışıkları Karayipler'den göründü. 2012'de aynısı Dünya'yı 9 gün farkla ıskaladı. Bugün olsaydı ne olurdu?\n\nKaynaklar: NASA Science (2014) 'Near Miss: The Solar Superstorm of July 2012', Riley (2012) Space Weather, Lloyd's (2013) Solar Storm Risk.",
+    "hashtags": ["#shorts", "#güneşfırtınası", "#carrington", "#uzay", "#bilim", "#kıyametdosyaları", "#bilgi"]
+  },
+  "scenes": [
+    {
+      "bg": "alert",
+      "text": "DUR! Kaydırma!",
+      "say": "Dur! Kaydırma!",
+      "tail": 0.15,
+      "elements": [
+        {"type": "bigtext", "text": "DUR!", "size": 300, "x": 540, "y": 720, "in": "stamp", "loop": "shake", "loop_amp": 0.6},
+        {"type": "icon", "what": "skull", "size": 300, "x": 540, "y": 1110, "in": "pop", "at": 0.35, "loop": "wiggle"}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Güneş bir gün internetini kapatabilir. Ve bunu daha önce yaptı!",
+      "say": "Güneş, bir gün internetini kapatabilir. Ve bunu... daha önce yaptı!",
+      "elements": [
+        {"type": "sun", "size": 470, "mood": "evil", "x": 330, "y": 640, "in": "pop", "loop": "pulse"},
+        {"type": "earth", "size": 300, "mood": "scared", "x": 800, "y": 1080, "in": "slide_r", "at": 0.15, "loop": "shake", "loop_amp": 0.4},
+        {"type": "icon", "what": "wifi", "size": 210, "x": 830, "y": 540, "in": "pop", "at": 0.3},
+        {"type": "cross", "size": 260, "x": 830, "y": 540, "in": "stamp", "at": 0.45},
+        {"type": "stamp", "text": "GERÇEK!", "size": 110, "x": 330, "y": 1130, "rot": 10, "in": "stamp", "at": 0.78}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "1 Eylül 1859. Astronom Richard Carrington teleskopla Güneş'e bakıyor...",
+      "say": "Bir Eylül, bin sekiz yüz elli dokuz. Astronom Riçırd Kerrington, teleskopla Güneş'e bakıyor...",
+      "elements": [
+        {"type": "calendar", "top": "EYLÜL", "text": "1 / 1859", "text_scale": 0.24, "size": 330, "x": 810, "y": 480, "in": "drop", "rot": 6},
+        {"type": "person", "kind": "scientist", "size": 640, "mood": "neutral", "pose": "hold", "x": 330, "y": 1000, "in": "slide_l", "at": 0.25, "loop": "bob", "loop_amp": 0.5},
+        {"type": "telescope", "size": 460, "x": 690, "y": 1000, "in": "pop", "at": 0.4},
+        {"type": "label", "text": "R. Carrington", "size": 80, "x": 300, "y": 520, "in": "fade", "at": 0.5, "underline": true}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "...ve kör edici, beyaz bir patlama görüyor!",
+      "say": "...ve kör edici, beyaz bir patlama görüyor!",
+      "elements": [
+        {"type": "sun", "size": 520, "mood": "angry", "hot": true, "x": 560, "y": 700, "in": "grow", "loop": "pulse"},
+        {"type": "spark", "size": 360, "x": 700, "y": 600, "in": "pop", "at": 0.35, "sfx": "boom", "loop": "pulse", "loop_amp": 2},
+        {"type": "label", "text": "BEYAZ IŞIK?!", "size": 96, "x": 540, "y": 1110, "in": "pop", "at": 0.5, "color": [255, 214, 48]},
+        {"type": "person", "kind": "scientist", "size": 420, "mood": "shocked", "pose": "up", "x": 180, "y": 1180, "in": "slide_l", "at": 0.4, "loop": "shake", "loop_amp": 0.5}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Bu bir güneş patlamasıydı. Milyarlarca ton plazma uzaya fırladı... tam bize doğru!",
+      "say": "Bu bir güneş patlamasıydı. Milyarlarca ton plazma uzaya fırladı... tam bize doğru!",
+      "elements": [
+        {"type": "sun", "size": 380, "mood": "evil", "x": 230, "y": 500, "in": "pop", "loop": "pulse"},
+        {"type": "stream", "from": [320, 590], "to": [800, 1080], "count": 18, "spread": 70, "speed": 0.7, "x": 0, "y": 0, "in": "fade", "at": 0.2, "jitter": false},
+        {"type": "earth", "size": 300, "mood": "scared", "x": 820, "y": 1100, "in": "pop", "at": 0.1, "loop": "shake", "loop_amp": 0.5},
+        {"type": "label", "text": "PLAZMA", "size": 92, "x": 760, "y": 560, "in": "pop", "at": 0.35, "arrow": [-160, 190], "underline": true},
+        {"type": "label", "text": "milyarlarca ton!", "size": 72, "x": 300, "y": 1130, "in": "pop", "at": 0.55, "color": [255, 214, 48], "rot": -6}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Normalde bu yolculuk günler sürer. Bu, sadece 17 saatte geldi!",
+      "say": "Normalde bu yolculuk günler sürer. Bu, sadece on yedi saatte geldi!",
+      "elements": [
+        {"type": "icon", "what": "clock", "size": 280, "x": 260, "y": 600, "in": "pop", "loop": "wiggle"},
+        {"type": "bigtext", "text": "17 SAAT!", "size": 170, "x": 680, "y": 600, "in": "stamp", "at": 0.55, "rot": -5},
+        {"type": "earth", "size": 380, "mood": "shocked", "x": 540, "y": 1060, "in": "pop", "at": 0.15, "loop": "shake", "loop_amp": 0.6},
+        {"type": "burst", "text": "ÇAT!", "size": 330, "x": 330, "y": 960, "in": "pop", "at": 0.7, "sfx": "boom"}
+      ]
+    },
+    {
+      "bg": "night",
+      "text": "Telgraf telleri kıvılcım saçtı, kağıtlar alev aldı!",
+      "say": "Telgraf telleri kıvılcım saçtı, kağıtlar alev aldı!",
+      "elements": [
+        {"type": "ground", "h": 760, "x": 540, "y": 1160, "jitter": false, "in": "none"},
+        {"type": "pole", "size": 860, "x": 300, "y": 900, "in": "slide_u"},
+        {"type": "spark", "size": 230, "text": "BZZT!", "x": 450, "y": 600, "in": "pop", "at": 0.2, "sfx": "zap", "loop": "shake"},
+        {"type": "spark", "size": 170, "x": 140, "y": 700, "in": "pop", "at": 0.35, "sfx": "zap", "loop": "shake"},
+        {"type": "person", "kind": "operator", "size": 560, "mood": "scared", "pose": "up", "x": 780, "y": 1080, "in": "slide_r", "at": 0.15, "loop": "shake", "loop_amp": 0.7},
+        {"type": "burst", "text": "ALEV!", "size": 340, "color": [255, 120, 20], "x": 790, "y": 560, "in": "pop", "at": 0.62}
+      ]
+    },
+    {
+      "bg": "night",
+      "text": "Bazı telgrafçılar pilleri söktü... ve yine de mesaj gönderdi. Sadece fırtınanın akımıyla!",
+      "say": "Bazı telgrafçılar pilleri söktü... ve yine de mesaj gönderdi. Sadece fırtınanın akımıyla!",
+      "elements": [
+        {"type": "aurora", "w": 1080, "h": 640, "x": 540, "y": 520, "in": "fade", "jitter": false},
+        {"type": "ground", "h": 760, "x": 540, "y": 1160, "jitter": false, "in": "none"},
+        {"type": "person", "kind": "operator", "size": 560, "mood": "smug", "pose": "point", "x": 300, "y": 1080, "in": "slide_l"},
+        {"type": "frame", "lines": ["PİL"], "size": 260, "font": 110, "x": 780, "y": 620, "in": "pop", "at": 0.1},
+        {"type": "cross", "size": 250, "x": 780, "y": 640, "in": "stamp", "at": 0.25},
+        {"type": "stamp", "text": "YİNE DE ÇALIŞTI!", "size": 80, "x": 720, "y": 1000, "rot": -8, "in": "stamp", "at": 0.55, "color": [60, 220, 90]}
+      ]
+    },
+    {
+      "bg": "night",
+      "text": "Kutup ışıkları Karayipler'den bile göründü. Madenciler sabah oldu sandı ve kahvaltı hazırladı!",
+      "say": "Kutup ışıkları, Karayipler'den bile göründü. Madenciler sabah oldu sandı, ve kalkıp kahvaltı hazırladı!",
+      "elements": [
+        {"type": "aurora", "w": 1080, "h": 760, "x": 540, "y": 560, "in": "fade", "jitter": false},
+        {"type": "ground", "h": 760, "x": 540, "y": 1160, "jitter": false, "in": "none"},
+        {"type": "label", "text": "KARAYİPLER!", "size": 90, "x": 540, "y": 380, "in": "pop", "at": 0.12, "color": [120, 255, 200]},
+        {"type": "person", "kind": "miner", "size": 600, "mood": "happy", "pose": "hold", "prop": "pan", "x": 420, "y": 1060, "in": "slide_l", "at": 0.45, "loop": "bob"},
+        {"type": "frame", "lines": ["saat:", "GECE 1!"], "size": 300, "font": 80, "x": 840, "y": 760, "in": "pop", "at": 0.7, "rot": 7}
+      ]
+    },
+    {
+      "bg": "alert",
+      "text": "Peki... bu bugün olsaydı?",
+      "say": "Peki... bu bugün olsaydı?",
+      "tail": 0.25,
+      "elements": [
+        {"type": "bigtext", "text": "BUGÜN\nOLSAYDI?", "size": 200, "x": 540, "y": 700, "in": "stamp", "loop": "pulse"},
+        {"type": "earth", "size": 300, "mood": "scared", "x": 540, "y": 1110, "in": "drop", "at": 0.25, "loop": "shake", "loop_amp": 0.5}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Uydular, GPS, elektrik şebekeleri, internet... hepsi gidebilir!",
+      "say": "Uydular, ce pe es, elektrik şebekeleri, internet... hepsi gidebilir!",
+      "elements": [
+        {"type": "icon", "what": "satellite", "size": 240, "x": 290, "y": 560, "in": "pop", "at": 0.0, "loop": "float"},
+        {"type": "icon", "what": "gps", "size": 240, "x": 790, "y": 560, "in": "pop", "at": 0.15, "loop": "float"},
+        {"type": "icon", "what": "bulb", "size": 240, "x": 290, "y": 980, "in": "pop", "at": 0.3, "loop": "float"},
+        {"type": "icon", "what": "wifi", "size": 240, "x": 790, "y": 980, "in": "pop", "at": 0.5, "loop": "float"},
+        {"type": "cross", "size": 230, "x": 290, "y": 560, "in": "pop", "at": 0.7},
+        {"type": "cross", "size": 230, "x": 790, "y": 560, "in": "pop", "at": 0.74},
+        {"type": "cross", "size": 230, "x": 290, "y": 980, "in": "pop", "at": 0.78},
+        {"type": "cross", "size": 230, "x": 790, "y": 980, "in": "pop", "at": 0.82},
+        {"type": "stamp", "text": "ÇÖKTÜ!", "size": 140, "x": 540, "y": 770, "rot": -12, "in": "stamp", "at": 0.86}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Bir sigorta raporuna göre sadece ABD'de hasar 2,6 trilyon dolara çıkabilir.",
+      "say": "Bir sigorta raporuna göre, sadece Amerika'da hasar, iki virgül altı trilyon dolara çıkabilir.",
+      "elements": [
+        {"type": "icon", "what": "card", "size": 300, "x": 280, "y": 600, "in": "pop", "loop": "wiggle"},
+        {"type": "bigtext", "text": "$2,6\nTRİLYON", "size": 170, "x": 640, "y": 720, "in": "stamp", "at": 0.6, "color": [90, 230, 110]},
+        {"type": "person", "kind": "agent", "size": 520, "pose": "down", "x": 300, "y": 1080, "in": "slide_l", "at": 0.2}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Ve en korkuncu: 2012'de aynı büyüklükte bir patlama Dünya'yı sadece 9 gün farkla ıskaladı!",
+      "say": "Ve en korkuncu... iki bin on ikide, aynı büyüklükte bir patlama, Dünya'yı sadece dokuz gün farkla ıskaladı!",
+      "elements": [
+        {"type": "orbit", "rx": 430, "ry": 190, "x": 540, "y": 860, "in": "fade", "jitter": false},
+        {"type": "sun", "size": 210, "mood": "evil", "x": 540, "y": 860, "in": "pop", "loop": "pulse"},
+        {"type": "earth", "size": 170, "mood": "scared", "x": 160, "y": 920, "in": "pop", "at": 0.15},
+        {"type": "stream", "from": [620, 840], "to": [1060, 760], "count": 14, "spread": 40, "speed": 0.9, "x": 0, "y": 0, "in": "fade", "at": 0.45, "jitter": false},
+        {"type": "calendar", "top": "TEMMUZ", "text": "2012", "size": 280, "x": 240, "y": 560, "in": "drop", "at": 0.25, "rot": -6},
+        {"type": "label", "text": "9 GÜN FARK!", "size": 96, "x": 760, "y": 520, "in": "pop", "at": 0.7, "arrow": [160, 210], "color": [255, 214, 48]}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Bir araştırmaya göre önümüzdeki 10 yılda böyle bir fırtına ihtimali yaklaşık %12.",
+      "say": "Bir araştırmaya göre, önümüzdeki on yılda böyle bir fırtına gelme ihtimali, yaklaşık yüzde on iki.",
+      "elements": [
+        {"type": "bigtext", "text": "%12", "size": 380, "x": 600, "y": 700, "in": "stamp", "at": 0.5, "loop": "pulse"},
+        {"type": "person", "kind": "plain", "size": 520, "mood": "shocked", "pose": "point", "x": 240, "y": 1070, "in": "slide_l"},
+        {"type": "frame", "lines": ["her 10 yılda"], "size": 380, "font": 72, "x": 760, "y": 1060, "in": "pop", "at": 0.25, "rot": -4}
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Yani... şarj aletini hazır tut. Takip et, sıradaki dosya daha çılgın!",
+      "say": "Yani... şarj aletini hazır tut. Takip et, sıradaki dosya daha da çılgın!",
+      "tail": 0.6,
+      "elements": [
+        {"type": "sun", "size": 440, "mood": "smug", "x": 540, "y": 700, "in": "pop", "loop": "bob"},
+        {"type": "icon", "what": "phone", "size": 220, "x": 850, "y": 430, "in": "pop", "at": 0.2, "loop": "wiggle"},
+        {"type": "stamp", "text": "TAKİP ET!", "size": 130, "x": 540, "y": 1110, "rot": -6, "in": "stamp", "at": 0.55, "color": [60, 220, 90]}
+      ]
+    }
+  ]
+}
