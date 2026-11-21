@@ -1,0 +1,810 @@
+{
+  "series": "KIYAMET DOSYALARI",
+  "episode": 2,
+  "tts": "voxcpm",
+  "voxcpm": {
+    "voice": "gizemli_anlatici",
+    "timesteps": 10,
+    "cfg": 2.0,
+    "retries": 2,
+    "min_similarity": 0.85
+  },
+  "music": "sneaky",
+  "music_gain": 0.07,
+  "caption_y": 1470,
+  "thumb_at": 0.03,
+  "meta": {
+    "title": "Nuh'un Gemisi Ağrı'da mı? 9 Metre Derinden Ne Çıktı? 🚢 #shorts",
+    "description": "Tufanın hikâyesi, Cudi mi Ağrı mı sorusu, 1959'daki gizemli uçak fotoğrafı ve 2026'da Durupınar'da 9 metre derinden çıkan yanmış ahşap... Peki bu gerçekten Nuh'un Gemisi mi, yoksa sadece bir kaya mı?\n\nNot: Bulgu henüz kanıtlanmış değil. Jeologların çoğu Durupınar'ı doğal bir oluşum olarak görüyor ve karbon-14 sonuçları bekleniyor. Hz. Nuh, saygı gereği bir ışıkla temsil edilmiştir.\n\nKaynaklar: Kur'an-ı Kerim (Hûd 36-44, Ankebût 14), Tevrat (Yaratılış 6-8), Noah's Ark Scans basın açıklaması (10 Kasım 2026), Jerusalem Post, Sputnik Türkiye (29.10.2026), Prof. Dr. Cenker Atila açıklamaları (Sözcü).",
+    "hashtags": [
+      "#shorts",
+      "#nuhungemisi",
+      "#tufan",
+      "#ağrıdağı",
+      "#durupınar",
+      "#gizem",
+      "#arkeoloji",
+      "#kıyametdosyaları"
+    ]
+  },
+  "scenes": [
+    {
+      "bg": "night",
+      "text": "Ağrı'da yerin 9 metre altından bir şey çıktı. Ama önce, hikayenin başına dönelim...",
+      "elements": [
+        {
+          "type": "ground",
+          "h": 760,
+          "x": 540,
+          "y": 1180,
+          "jitter": false,
+          "in": "none"
+        },
+        {
+          "type": "drill",
+          "size": 600,
+          "x": 540,
+          "y": 880,
+          "in": "slide_u",
+          "loop": "shake",
+          "loop_amp": 0.3
+        },
+        {
+          "type": "label",
+          "text": "9 METRE",
+          "size": 96,
+          "x": 830,
+          "y": 1300,
+          "in": "pop",
+          "at": 0.3,
+          "color": [
+            255,
+            214,
+            48
+          ],
+          "arrow": [
+            -170,
+            -60
+          ]
+        },
+        {
+          "type": "icon",
+          "what": "clock",
+          "size": 260,
+          "x": 230,
+          "y": 520,
+          "in": "pop",
+          "at": 0.65,
+          "loop": "spin",
+          "loop_amp": 6
+        }
+      ]
+    },
+    {
+      "bg": "dawn",
+      "text": "Binlerce yıl önce Hazreti Nuh'a bir emir geldi: Bir gemi yap!",
+      "elements": [
+        {
+          "type": "ground",
+          "h": 700,
+          "x": 540,
+          "y": 1220,
+          "jitter": false,
+          "in": "none"
+        },
+        {
+          "type": "light",
+          "size": 300,
+          "x": 200,
+          "y": 640,
+          "in": "pop",
+          "loop": "pulse"
+        },
+        {
+          "type": "planks",
+          "size": 420,
+          "x": 700,
+          "y": 1120,
+          "in": "drop",
+          "at": 0.35
+        },
+        {
+          "type": "hammer",
+          "size": 240,
+          "x": 760,
+          "y": 700,
+          "in": "pop",
+          "at": 0.55,
+          "loop": "wiggle",
+          "loop_amp": 3
+        },
+        {
+          "type": "bigtext",
+          "text": "GEMİ YAP!",
+          "size": 150,
+          "x": 600,
+          "y": 440,
+          "in": "stamp",
+          "at": 0.6
+        }
+      ]
+    },
+    {
+      "bg": "dawn",
+      "text": "Hem de kupkuru bir arazide! Kavmi alay etti: Deniz nerede Nuh?",
+      "elements": [
+        {
+          "type": "ground",
+          "h": 700,
+          "x": 540,
+          "y": 1220,
+          "jitter": false,
+          "in": "none"
+        },
+        {
+          "type": "ark",
+          "size": 600,
+          "x": 540,
+          "y": 640,
+          "in": "none"
+        },
+        {
+          "type": "person",
+          "kind": "king",
+          "size": 460,
+          "mood": "happy",
+          "pose": "point",
+          "x": 250,
+          "y": 1080,
+          "in": "slide_l",
+          "loop": "bob"
+        },
+        {
+          "type": "person",
+          "kind": "caveman",
+          "size": 420,
+          "mood": "happy",
+          "pose": "up",
+          "x": 800,
+          "y": 1100,
+          "in": "slide_r",
+          "at": 0.15,
+          "loop": "bob"
+        },
+        {
+          "type": "label",
+          "text": "HAHAHA!",
+          "size": 100,
+          "x": 540,
+          "y": 960,
+          "in": "pop",
+          "at": 0.35,
+          "color": [
+            255,
+            214,
+            48
+          ],
+          "loop": "shake"
+        },
+        {
+          "type": "label",
+          "text": "deniz nerede?",
+          "size": 80,
+          "x": 760,
+          "y": 450,
+          "in": "pop",
+          "at": 0.55
+        }
+      ]
+    },
+    {
+      "bg": "dawn",
+      "text": "Ama gemi bitti. Ve her canlıdan birer çift gemiye bindi.",
+      "elements": [
+        {
+          "type": "ground",
+          "h": 700,
+          "x": 540,
+          "y": 1220,
+          "jitter": false,
+          "in": "none"
+        },
+        {
+          "type": "ark",
+          "size": 760,
+          "x": 640,
+          "y": 700,
+          "in": "none"
+        },
+        {
+          "type": "animal",
+          "kind": "lion",
+          "size": 220,
+          "x": -200,
+          "y": 1130,
+          "move": [
+            150,
+            1130
+          ],
+          "move_t": [
+            0.1,
+            0.35
+          ],
+          "in": "none",
+          "loop": "bob"
+        },
+        {
+          "type": "animal",
+          "kind": "lion",
+          "size": 200,
+          "x": -200,
+          "y": 1240,
+          "move": [
+            290,
+            1240
+          ],
+          "move_t": [
+            0.15,
+            0.4
+          ],
+          "in": "none",
+          "loop": "bob"
+        },
+        {
+          "type": "animal",
+          "kind": "elephant",
+          "size": 240,
+          "x": -250,
+          "y": 1150,
+          "move": [
+            430,
+            1150
+          ],
+          "move_t": [
+            0.3,
+            0.55
+          ],
+          "in": "none",
+          "loop": "bob"
+        },
+        {
+          "type": "animal",
+          "kind": "giraffe",
+          "size": 240,
+          "x": -250,
+          "y": 1100,
+          "move": [
+            700,
+            1100
+          ],
+          "move_t": [
+            0.45,
+            0.7
+          ],
+          "in": "none",
+          "loop": "bob"
+        },
+        {
+          "type": "animal",
+          "kind": "sheep",
+          "size": 180,
+          "x": -200,
+          "y": 1260,
+          "move": [
+            900,
+            1260
+          ],
+          "move_t": [
+            0.6,
+            0.85
+          ],
+          "in": "none",
+          "loop": "bob"
+        },
+        {
+          "type": "label",
+          "text": "çift çift!",
+          "size": 90,
+          "x": 300,
+          "y": 520,
+          "in": "pop",
+          "at": 0.5,
+          "color": [
+            255,
+            214,
+            48
+          ]
+        }
+      ]
+    },
+    {
+      "bg": "night",
+      "text": "Sonra yağmur başladı. Sular yükseldi, yükseldi, yükseldi...",
+      "elements": [
+        {
+          "type": "ground",
+          "h": 700,
+          "x": 540,
+          "y": 1220,
+          "jitter": false,
+          "in": "none"
+        },
+        {
+          "type": "water",
+          "h": 1500,
+          "x": 540,
+          "y": 1700,
+          "move": [
+            540,
+            850
+          ],
+          "move_t": [
+            0.1,
+            1.0
+          ],
+          "in": "none",
+          "jitter": false
+        },
+        {
+          "type": "ark",
+          "size": 700,
+          "x": 540,
+          "y": 1050,
+          "move": [
+            540,
+            700
+          ],
+          "move_t": [
+            0.2,
+            1.0
+          ],
+          "in": "none",
+          "loop": "bob"
+        },
+        {
+          "type": "label",
+          "text": "yükseliyor!",
+          "size": 90,
+          "x": 300,
+          "y": 460,
+          "in": "pop",
+          "at": 0.6,
+          "color": [
+            140,
+            200,
+            255
+          ]
+        },
+        {
+          "type": "rain",
+          "w": 1080,
+          "h": 1700,
+          "x": 540,
+          "y": 960,
+          "in": "none",
+          "jitter": false
+        }
+      ]
+    },
+    {
+      "bg": "dawn",
+      "text": "Sular çekilince gemi bir dağın üstüne oturdu. Peki ama hangi dağ?",
+      "elements": [
+        {
+          "type": "mountain",
+          "size": 760,
+          "x": 540,
+          "y": 1000,
+          "in": "none"
+        },
+        {
+          "type": "ark",
+          "size": 360,
+          "mood": "happy",
+          "x": 560,
+          "y": 640,
+          "in": "drop"
+        },
+        {
+          "type": "bigtext",
+          "text": "HANGİ DAĞ?",
+          "size": 150,
+          "x": 540,
+          "y": 400,
+          "in": "stamp",
+          "at": 0.6
+        }
+      ]
+    },
+    {
+      "bg": "paper",
+      "text": "Kur'an Cudi Dağı diyor, Tevrat Ağrı. Ve ikisi de Türkiye'de!",
+      "elements": [
+        {
+          "type": "mountain",
+          "size": 400,
+          "x": 280,
+          "y": 760,
+          "in": "pop"
+        },
+        {
+          "type": "frame",
+          "lines": [
+            "CUDİ DAĞI"
+          ],
+          "size": 380,
+          "font": 76,
+          "x": 280,
+          "y": 1060,
+          "in": "pop",
+          "at": 0.1,
+          "rot": -4
+        },
+        {
+          "type": "mountain",
+          "size": 460,
+          "x": 800,
+          "y": 740,
+          "in": "pop",
+          "at": 0.5
+        },
+        {
+          "type": "frame",
+          "lines": [
+            "AĞRI DAĞI"
+          ],
+          "size": 380,
+          "font": 76,
+          "x": 800,
+          "y": 1060,
+          "in": "pop",
+          "at": 0.6,
+          "rot": 4
+        },
+        {
+          "type": "label",
+          "text": "VS",
+          "size": 120,
+          "x": 540,
+          "y": 720,
+          "in": "stamp",
+          "at": 0.45,
+          "color": [
+            200,
+            30,
+            30
+          ]
+        }
+      ],
+      "say": "Kuran Cudi Dağı diyor, Tevrat Ağrı. Ve ikisi de Türkiyede!"
+    },
+    {
+      "bg": "paper",
+      "text": "1959'da Yüzbaşı İlhan Durupınar, bir uçak fotoğrafında gemi biçiminde dev bir iz fark etti!",
+      "elements": [
+        {
+          "type": "person",
+          "kind": "operator",
+          "size": 560,
+          "mood": "shocked",
+          "pose": "point",
+          "x": 260,
+          "y": 1000,
+          "in": "slide_l",
+          "loop": "bob",
+          "loop_amp": 0.5
+        },
+        {
+          "type": "frame",
+          "lines": [
+            "FOTO #1"
+          ],
+          "size": 460,
+          "font": 70,
+          "paper": [
+            240,
+            240,
+            235
+          ],
+          "x": 740,
+          "y": 760,
+          "in": "pop",
+          "at": 0.2,
+          "rot": 4
+        },
+        {
+          "type": "ark",
+          "size": 360,
+          "x": 740,
+          "y": 840,
+          "in": "fade",
+          "at": 0.5,
+          "cutout": false,
+          "rot": 4
+        },
+        {
+          "type": "label",
+          "text": "Yzb. İlhan Durupınar",
+          "size": 72,
+          "x": 300,
+          "y": 460,
+          "in": "pop",
+          "at": 0.1,
+          "color": [
+            40,
+            30,
+            30
+          ],
+          "underline": true
+        },
+        {
+          "type": "stamp",
+          "text": "GEMİ İZİ?!",
+          "size": 90,
+          "x": 740,
+          "y": 1140,
+          "rot": -8,
+          "in": "stamp",
+          "at": 0.8
+        }
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Boyu 160 metre. Ağrı Dağı'na sadece 30 kilometre!",
+      "elements": [
+        {
+          "type": "ark",
+          "size": 820,
+          "mood": "neutral",
+          "x": 540,
+          "y": 800,
+          "in": "slide_r"
+        },
+        {
+          "type": "label",
+          "text": "160 METRE!",
+          "size": 110,
+          "x": 540,
+          "y": 470,
+          "in": "pop",
+          "at": 0.2,
+          "color": [
+            255,
+            214,
+            48
+          ],
+          "underline": true
+        },
+        {
+          "type": "frame",
+          "lines": [
+            "Ağrı'ya 30 km"
+          ],
+          "size": 460,
+          "font": 76,
+          "x": 540,
+          "y": 1180,
+          "in": "pop",
+          "at": 0.7,
+          "rot": -3
+        }
+      ],
+      "say": "Boyu yüz altmış metre. Ağrı Dağına sadece otuz kilometre!"
+    },
+    {
+      "bg": "space",
+      "text": "Ama dur! Jeologların çoğu bunun doğal bir kaya olduğunu söylüyor.",
+      "elements": [
+        {
+          "type": "person",
+          "kind": "scientist",
+          "size": 600,
+          "mood": "smug",
+          "pose": "point",
+          "x": 300,
+          "y": 1030,
+          "in": "slide_l"
+        },
+        {
+          "type": "bigtext",
+          "text": "DUR!",
+          "size": 220,
+          "x": 740,
+          "y": 520,
+          "in": "stamp",
+          "at": 0.05
+        },
+        {
+          "type": "stamp",
+          "text": "SADECE KAYA?",
+          "size": 90,
+          "x": 760,
+          "y": 1000,
+          "rot": 7,
+          "in": "stamp",
+          "at": 0.6
+        }
+      ]
+    },
+    {
+      "bg": "alert",
+      "text": "Yine de 2026'da kazdılar. Ve 9 metre derinden... yanmış ahşap çıktı!",
+      "elements": [
+        {
+          "type": "bigtext",
+          "text": "9 METRE",
+          "size": 200,
+          "x": 540,
+          "y": 520,
+          "in": "stamp"
+        },
+        {
+          "type": "frame",
+          "lines": [
+            "YANMIŞ",
+            "AHŞAP"
+          ],
+          "size": 420,
+          "font": 100,
+          "paper": [
+            60,
+            40,
+            30
+          ],
+          "ink": [
+            255,
+            214,
+            48
+          ],
+          "x": 540,
+          "y": 960,
+          "in": "pop",
+          "at": 0.5
+        },
+        {
+          "type": "burst",
+          "text": "BULDUK?!",
+          "size": 320,
+          "x": 830,
+          "y": 1180,
+          "in": "pop",
+          "at": 0.8,
+          "sfx": "boom",
+          "text_scale": 0.17
+        }
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Örnekler 4 ülkede, 4 laboratuvarda. Karbon 14 sonuçları bekleniyor.",
+      "elements": [
+        {
+          "type": "icon",
+          "what": "book",
+          "size": 190,
+          "x": 230,
+          "y": 560,
+          "in": "pop",
+          "at": 0.05
+        },
+        {
+          "type": "icon",
+          "what": "book",
+          "size": 190,
+          "x": 850,
+          "y": 560,
+          "in": "pop",
+          "at": 0.15
+        },
+        {
+          "type": "icon",
+          "what": "book",
+          "size": 190,
+          "x": 230,
+          "y": 900,
+          "in": "pop",
+          "at": 0.25
+        },
+        {
+          "type": "icon",
+          "what": "book",
+          "size": 190,
+          "x": 850,
+          "y": 900,
+          "in": "pop",
+          "at": 0.35
+        },
+        {
+          "type": "earth",
+          "size": 280,
+          "mood": "neutral",
+          "x": 540,
+          "y": 730,
+          "in": "pop",
+          "loop": "bob"
+        },
+        {
+          "type": "bigtext",
+          "text": "C-14",
+          "size": 200,
+          "x": 540,
+          "y": 1140,
+          "in": "stamp",
+          "at": 0.7,
+          "color": [
+            120,
+            255,
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "bg": "space",
+      "text": "Sence gemi mi, kaya mı? Yorumlara yaz, takip et!",
+      "tail": 0.8,
+      "elements": [
+        {
+          "type": "frame",
+          "lines": [
+            "GEMİ"
+          ],
+          "size": 340,
+          "font": 110,
+          "paper": [
+            200,
+            240,
+            200
+          ],
+          "x": 270,
+          "y": 640,
+          "in": "pop",
+          "rot": -6
+        },
+        {
+          "type": "label",
+          "text": "mi?",
+          "size": 100,
+          "x": 540,
+          "y": 640,
+          "in": "pop",
+          "at": 0.1
+        },
+        {
+          "type": "frame",
+          "lines": [
+            "KAYA"
+          ],
+          "size": 340,
+          "font": 110,
+          "paper": [
+            220,
+            220,
+            230
+          ],
+          "x": 810,
+          "y": 640,
+          "in": "pop",
+          "at": 0.15,
+          "rot": 6
+        },
+        {
+          "type": "stamp",
+          "text": "TAKİP ET!",
+          "size": 130,
+          "x": 540,
+          "y": 1100,
+          "rot": -6,
+          "in": "stamp",
+          "at": 0.55,
+          "color": [
+            60,
+            220,
+            90
+          ]
+        }
+      ]
+    }
+  ]
+}
