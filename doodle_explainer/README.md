@@ -18,6 +18,8 @@ python3 -m doodle_explainer doodle_explainer/episodes/01_carrington.json -o outp
 
 ## Kurulum
 
+En kolayı: `bash doodle_explainer/setup.sh` (ya da torch olmadan `--hafif`). Format kuralları ve senaryo kalıbı için `FORMAT_REHBERI.md` dosyasına bak.
+
 ```bash
 pip install piper-tts faster-whisper pillow numpy fonttools   # temel + hizalama
 # Daha doğal ve coşkulu Türkçe ses için (isteğe bağlı, ~3 GB):
