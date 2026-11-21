@@ -586,11 +586,27 @@ def render_episode(ep_path: str, out_path: str, preview: bool = False, keep_tmp:
         cfg = ep.get(engine, {})
         synth = tts_chatterbox if engine == "chatterbox" else tts_voxcpm
         seeds = [cfg.get("seed", 22)] * len(scenes)
-        synth(texts, wavs, cfg, seeds)
+        # cache: identical text + voice settings are never synthesized twice (fix visuals, re-render fast)
+        import hashlib
+        import shutil
+        cache_dir = os.path.expanduser(os.environ.get("DOODLE_TTS_CACHE", "~/.cache/doodle_explainer/tts"))
+        os.makedirs(cache_dir, exist_ok=True)
+        ckey = {k: v for k, v in cfg.items() if k not in ("retries", "min_similarity")}
+        cpaths = [os.path.join(cache_dir, hashlib.sha1(json.dumps([engine, ckey, t], ensure_ascii=False, sort_keys=True)
+                                                     .encode()).hexdigest() + ".wav") for t in texts]
+        todo = []
+        for i, cp in enumerate(cpaths):
+            if os.path.exists(cp) and not ep.get("no_cache"):
+                shutil.copy(cp, wavs[i])
+            else:
+                todo.append(i)
+        if len(todo) < len(scenes):
+            print(f"[cache] {len(scenes) - len(todo)} sahne önbellekten")
+        if todo:
+            synth([texts[i] for i in todo], [wavs[i] for i in todo], cfg, [seeds[i] for i in todo])
         # transcript QC: re-roll scenes whose speech doesn't match the script
         qc = Aligner.get(ep.get("whisper_model", "small"), tmp)
         best = {}
-        todo = list(range(len(scenes)))
         for attempt in range(cfg.get("retries", 3) + 1):
             bad = []
             for i in todo:
@@ -602,7 +618,8 @@ def render_episode(ep_path: str, out_path: str, preview: bool = False, keep_tmp:
                     best[i] = (score, x)
                 if best[i][0] < cfg.get("min_similarity", 0.85):
                     bad.append(i)
-            print(f"[qc] attempt {attempt}: scores " + " ".join(f"{best[i][0]:.2f}" for i in sorted(best)))
+            if todo:
+                print(f"[qc] attempt {attempt}: scores " + " ".join(f"{i}:{best[i][0]:.2f}" for i in sorted(best)))
             if not bad or attempt == cfg.get("retries", 3):
                 break
             todo = bad
@@ -612,6 +629,7 @@ def render_episode(ep_path: str, out_path: str, preview: bool = False, keep_tmp:
                 os.replace(w, wavs[i])
         for i, (_, x) in best.items():
             write_wav(wavs[i], x)
+            shutil.copy(wavs[i], cpaths[i])
     else:
         voice = ensure_voice(ep.get("voice", "tr_TR-dfki-medium"))
         for txt, wav in zip(texts, wavs):
