@@ -1,9 +1,10 @@
 {
   "series": "KIYAMET DOSYALARI",
   "episode": 1,
-  "tts": "chatterbox",
+  "tts": "edge",
+  "edge": {"voice": "tr-TR-AhmetNeural", "rate": "+10%", "pitch": "+0Hz"},
   "chatterbox": {"lang": "tr", "exaggeration": 0.7, "cfg_weight": 0.35, "temperature": 0.8, "seed": 3, "retries": 3, "min_similarity": 0.85},
-  "speed": 1.06,
+  "speed": 1.0,
   "caption_y": 1470,
   "voice": "tr_TR-dfki-medium",
   "length_scale": 0.82,
@@ -51,7 +52,7 @@
     {
       "bg": "space",
       "text": "...ve kör edici, beyaz bir patlama görüyor!",
-      "say": "...ve kör edici, beyaz bir patlama görüyor!",
+      "say": "Ve kör edici, beyaz bir patlama görüyor!",
       "elements": [
         {"type": "sun", "size": 520, "mood": "angry", "hot": true, "x": 560, "y": 700, "in": "grow", "loop": "pulse"},
         {"type": "spark", "size": 360, "x": 700, "y": 600, "in": "pop", "at": 0.35, "sfx": "boom", "loop": "pulse", "loop_amp": 2},

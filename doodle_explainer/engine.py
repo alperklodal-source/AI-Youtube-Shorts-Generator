@@ -87,6 +87,37 @@ def write_wav(path: str, x: np.ndarray):
         w.writeframes((np.clip(x, -1, 1) * 32767).astype(np.int16).tobytes())
 
 
+def tts_edge(texts, wavs, cfg):
+    """Microsoft neural voices via edge-tts (natural native Turkish: tr-TR-AhmetNeural / tr-TR-EmelNeural)."""
+    import asyncio
+
+    import edge_tts
+
+    proxy = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
+
+    async def one(txt, wav):
+        mp3 = wav[:-4] + ".mp3"
+        for attempt in range(4):
+            try:
+                c = edge_tts.Communicate(txt, cfg.get("voice", "tr-TR-AhmetNeural"), rate=cfg.get("rate", "+8%"),
+                                         pitch=cfg.get("pitch", "+0Hz"), volume=cfg.get("volume", "+0%"), proxy=proxy)
+                await c.save(mp3)
+                break
+            except Exception as e:  # transient network errors
+                if attempt == 3:
+                    raise
+                print(f"[edge] retry {attempt + 1}: {e}")
+                await asyncio.sleep(2 * (attempt + 1))
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", mp3, "-ac", "1", "-ar", str(SR), wav], check=True)
+
+    async def run():
+        for i, (t, w) in enumerate(zip(texts, wavs)):
+            print(f"[edge] {i + 1}/{len(texts)}: {t[:50]}", flush=True)
+            await one(t, w)
+
+    asyncio.run(run())
+
+
 CHATTERBOX_SCRIPT = os.path.join(os.path.dirname(__file__), "tts_chatterbox.py")
 
 
@@ -466,7 +497,9 @@ def render_episode(ep_path: str, out_path: str, preview: bool = False, keep_tmp:
     engine = ep.get("tts", "piper")
     wavs = [os.path.join(tmp, f"s{i:02d}.wav") for i in range(len(scenes))]
     texts = [sc.get("say", sc["text"]) for sc in scenes]
-    if engine == "chatterbox":
+    if engine == "edge":
+        tts_edge(texts, wavs, ep.get("edge", {}))
+    elif engine == "chatterbox":
         cfg = ep.get("chatterbox", {})
         seeds = [cfg.get("seed", 1)] * len(scenes)
         tts_chatterbox(texts, wavs, cfg, seeds)

@@ -25,8 +25,11 @@ python3 -m venv ~/.cache/doodle_explainer/cbx
 ~/.cache/doodle_explainer/cbx/bin/pip install chatterbox-tts "setuptools<81"
 ```
 
+- `"tts": "edge"` **(önerilen)**: Microsoft nöral Türkçe sesleri (`tr-TR-AhmetNeural`, `tr-TR-EmelNeural`),
+  aksansız ve doğal. `pip install edge-tts`, internet gerekir (`speech.platform.bing.com`).
+  `"edge": {"voice": "tr-TR-AhmetNeural", "rate": "+10%", "pitch": "+0Hz"}`
 - `"tts": "piper"`: hızlıdır ve offline çalışır, ses biraz robotik (`tr_TR-dfki-medium`, ilk kullanımda indirilir).
-- `"tts": "chatterbox"`: doğal ve duygulu ses verir. `exaggeration` coşku düzeyini ayarlar.
+- `"tts": "chatterbox"`: duygulu ama varsayılan sesi Türkçeyi yabancı aksanıyla okuyor; yalnızca Türkçe bir referans sesle (`voice_ref`) kullanılmalı. `exaggeration` coşku düzeyini ayarlar.
   Her sahne Whisper ile yazıya dökülür; metinle benzerliği `min_similarity` değerinin altında kalan sahne
   farklı bir seed ile yeniden üretilir (transkript kontrolü).
 - Altyazılar faster-whisper kelime zaman damgalarıyla sese hizalanır.
