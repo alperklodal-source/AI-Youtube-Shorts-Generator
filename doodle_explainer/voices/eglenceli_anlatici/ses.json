@@ -14,7 +14,10 @@
     "ABD": "Amerika",
     "GPS": "ce pe es",
     "NASA": "Nasa",
-    "OSIRIS-APEX": "Ozıris Eypeks"
+    "OSIRIS-APEX": "Ozıris Eypeks",
+    "Hz.": "Hazreti",
+    "C-14": "karbon on dört",
+    "Yzb.": "Yüzbaşı"
   },
   "yapay": true,
   "not": "VoxCPM2 ile yalnız metin tarifinden tasarlandı; kimsenin kaydından klonlanmadı. Synthetic voice designed from a text description only."
