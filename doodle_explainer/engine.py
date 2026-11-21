@@ -63,12 +63,12 @@ def read_wav(path: str) -> np.ndarray:
     return x
 
 
-def trim(x: np.ndarray, thr=0.012):
+def trim(x: np.ndarray, thr=0.012, with_offset=False):
     env = np.convolve(np.abs(x), np.ones(256) / 256, "same")
     nz = np.where(env > thr)[0]
-    if len(nz) == 0:
-        return x
-    return x[max(0, nz[0] - 400): nz[-1] + 1200]
+    a = max(0, nz[0] - 400) if len(nz) else 0
+    y = x[a: nz[-1] + 1200] if len(nz) else x
+    return (y, a / SR) if with_offset else y
 
 
 def time_stretch(x: np.ndarray, speed: float, tmp: str) -> np.ndarray:
@@ -116,6 +116,36 @@ def tts_edge(texts, wavs, cfg):
             await one(t, w)
 
     asyncio.run(run())
+
+
+EMA_SCRIPT = os.path.join(os.path.dirname(__file__), "tts_ema.py")
+
+
+def tts_ema(texts, wavs, cfg):
+    """EMA Lightning (open Turkish TTS) in the torch venv; returns exact word timings per text."""
+    py = os.path.expanduser(os.environ.get("DOODLE_TORCH_PY", "~/.cache/doodle_explainer/cbx/bin/python3"))
+    tmp = os.path.dirname(wavs[0])
+    job, tim = os.path.join(tmp, "ema_job.json"), os.path.join(tmp, "ema_timings.json")
+    with open(job, "w", encoding="utf-8") as f:
+        json.dump({"texts": texts, "wavs": wavs, "timings": tim, **cfg}, f, ensure_ascii=False)
+    subprocess.run([py, EMA_SCRIPT, job], check=True, stderr=subprocess.DEVNULL)
+    with open(tim, encoding="utf-8") as f:
+        return json.load(f)
+
+
+VOXCPM_SCRIPT = os.path.join(os.path.dirname(__file__), "tts_voxcpm.py")
+VOICES_DIR = os.path.join(os.path.dirname(__file__), "voices")
+
+
+def tts_voxcpm(texts, wavs, cfg, seeds=None):
+    """VoxCPM2 reading with a designed voice from doodle_explainer/voices/<name>."""
+    py = os.path.expanduser(os.environ.get("DOODLE_TORCH_PY", "~/.cache/doodle_explainer/cbx/bin/python3"))
+    job = os.path.join(os.path.dirname(wavs[0]), "vox_job.json")
+    vdir = cfg.get("voice", "eglenceli_anlatici")
+    vdir = vdir if os.path.isdir(vdir) else os.path.join(VOICES_DIR, vdir)
+    with open(job, "w", encoding="utf-8") as f:
+        json.dump({"texts": texts, "wavs": wavs, "seeds": seeds, "voice_dir": vdir, **cfg}, f, ensure_ascii=False)
+    subprocess.run([py, VOXCPM_SCRIPT, job], check=True, stderr=subprocess.DEVNULL)
 
 
 CHATTERBOX_SCRIPT = os.path.join(os.path.dirname(__file__), "tts_chatterbox.py")
@@ -209,8 +239,13 @@ def sfx(kind: str, rng: np.random.Generator) -> np.ndarray:
 
 
 def music_bed(n: int, mood: str = "mystery") -> np.ndarray:
-    """Cheap dark synth pad + ticking pulse, mysterious conspiracy vibe."""
+    """Cheap dark synth pad + ticking pulse (mystery) or a bouncy pizzicato loop (fun)."""
     t = np.arange(n) / SR
+    if mood == "fun":
+        return fun_bed(n)
+    if mood == "sneaky":  # playful-mysterious: minor pizzicato, cartoon-detective feel
+        return 0.8 * fun_bed(n, bpm=100, prog=[(57, 60, 64, 69), (53, 57, 60, 65), (50, 53, 57, 62), (52, 56, 59, 64)]) \
+            + 0.35 * dark_pad(n)
     roots = {"mystery": [55.0, 65.41, 49.0, 58.27], "upbeat": [65.41, 73.42, 87.31, 98.0]}[mood]
     bar = 4.0
     out = np.zeros(n)
@@ -228,6 +263,51 @@ def music_bed(n: int, mood: str = "mystery") -> np.ndarray:
     k = (t % beat)
     out += 0.25 * np.sin(2 * np.pi * 1800 * t) * np.exp(-k * 90)
     out += 0.4 * np.sin(2 * np.pi * 45 * t) * np.exp(-((t + beat / 2) % (beat * 2)) * 10)
+    return out / (np.abs(out).max() + 1e-6)
+
+
+def dark_pad(n: int) -> np.ndarray:
+    t = np.arange(n) / SR
+    lfo = 0.6 + 0.4 * np.sin(2 * np.pi * 0.07 * t)
+    return lfo * (np.sin(2 * np.pi * 55 * t) + 0.5 * np.sin(2 * np.pi * 82.4 * t + 1) + 0.3 * np.sin(2 * np.pi * 110.3 * t))
+
+
+def fun_bed(n: int, bpm: float = 112, prog=None) -> np.ndarray:
+    """Playful cartoon loop: plucked major arpeggios, bouncy bass, finger snaps."""
+    out = np.zeros(n)
+    beat = 60 / bpm
+    step = beat / 2
+    prog = prog or [(60, 64, 67, 72), (57, 60, 64, 69), (65, 69, 72, 77), (67, 71, 74, 79)]  # C Am F G
+    pattern = [0, 2, 1, 3, 2, 1, 3, 2]
+    rng = np.random.default_rng(2)
+
+    def pluck(freq, dur, amp):
+        tt = np.arange(int(dur * SR)) / SR
+        return amp * (np.sin(2 * np.pi * freq * tt) + 0.3 * np.sin(4 * np.pi * freq * tt)) * np.exp(-tt * 9)
+
+    k = 0
+    while True:
+        s0 = int(k * step * SR)
+        if s0 >= n:
+            break
+        bar = int(k // 8) % len(prog)
+        chord = prog[bar]
+        note = chord[pattern[k % 8]] + (12 if (k // 32) % 2 else 0)
+        seg = pluck(440 * 2 ** ((note - 69) / 12), step * 1.6, 0.35)
+        if k % 2 == 0:  # bass on beats, octave bounce
+            bn = chord[0] - 24 + (12 if (k // 2) % 2 else 0)
+            seg = seg[: int(step * 1.6 * SR)]
+            b = pluck(440 * 2 ** ((bn - 69) / 12), step * 1.8, 0.6)
+            m = max(len(seg), len(b))
+            seg = np.pad(seg, (0, m - len(seg))) + np.pad(b, (0, m - len(b)))
+        if k % 4 == 2:  # snap on 2 and 4
+            sn = int(0.06 * SR)
+            snap = rng.standard_normal(sn) * np.exp(-np.arange(sn) / SR * 70) * 0.5
+            seg = np.pad(seg, (0, max(0, sn - len(seg))))
+            seg[:sn] += snap
+        e = min(n, s0 + len(seg))
+        out[s0:e] += seg[: e - s0]
+        k += 1
     return out / (np.abs(out).max() + 1e-6)
 
 
@@ -302,7 +382,7 @@ def ease_out_bounce(x):
     return n1 * x * x + 0.984375
 
 
-def transform(e, te, tscene, boil, idx):
+def transform(e, te, tscene, boil, idx, dur=1.0):
     """Return (dx, dy, scale, rot_deg, alpha) for an element te seconds after appearing."""
     dx = dy = rot = 0.0
     sc, al = 1.0, 1.0
@@ -331,7 +411,7 @@ def transform(e, te, tscene, boil, idx):
     # path movement
     if "move" in e:
         mx, my = e["move"]
-        m0, m1 = e.get("move_t", (0.0, 1.0))
+        m0, m1 = (v * dur for v in e.get("move_t", (0.0, 1.0)))  # fractions of the scene
         u = min(1, max(0, (tscene - m0) / max(1e-3, m1 - m0)))
         u = u * u * (3 - 2 * u)
         dx += (mx - e["x"]) * u
@@ -497,12 +577,16 @@ def render_episode(ep_path: str, out_path: str, preview: bool = False, keep_tmp:
     engine = ep.get("tts", "piper")
     wavs = [os.path.join(tmp, f"s{i:02d}.wav") for i in range(len(scenes))]
     texts = [sc.get("say", sc["text"]) for sc in scenes]
-    if engine == "edge":
+    word_times = None
+    if engine == "ema":
+        word_times = tts_ema(texts, wavs, ep.get("ema", {}))
+    elif engine == "edge":
         tts_edge(texts, wavs, ep.get("edge", {}))
-    elif engine == "chatterbox":
-        cfg = ep.get("chatterbox", {})
-        seeds = [cfg.get("seed", 1)] * len(scenes)
-        tts_chatterbox(texts, wavs, cfg, seeds)
+    elif engine in ("chatterbox", "voxcpm"):
+        cfg = ep.get(engine, {})
+        synth = tts_chatterbox if engine == "chatterbox" else tts_voxcpm
+        seeds = [cfg.get("seed", 22)] * len(scenes)
+        synth(texts, wavs, cfg, seeds)
         # transcript QC: re-roll scenes whose speech doesn't match the script
         qc = Aligner.get(ep.get("whisper_model", "small"), tmp)
         best = {}
@@ -523,7 +607,7 @@ def render_episode(ep_path: str, out_path: str, preview: bool = False, keep_tmp:
                 break
             todo = bad
             sub_w = [os.path.join(tmp, f"r{i:02d}.wav") for i in bad]
-            tts_chatterbox([texts[i] for i in bad], sub_w, cfg, [seeds[i] + 101 * (attempt + 1) for i in bad])
+            synth([texts[i] for i in bad], sub_w, cfg, [seeds[i] + 101 * (attempt + 1) for i in bad])
             for i, w in zip(bad, sub_w):
                 os.replace(w, wavs[i])
         for i, (_, x) in best.items():
@@ -535,7 +619,9 @@ def render_episode(ep_path: str, out_path: str, preview: bool = False, keep_tmp:
     t_cursor = 0.0
     voice_parts = []
     for i, sc in enumerate(scenes):
-        x = trim(read_wav(wavs[i]))
+        x, off = trim(read_wav(wavs[i]), with_offset=True)
+        if word_times:
+            sc["_words"] = [(w, a - off, b - off) for w, a, b in word_times[i]]
         if ep.get("speed", 1.0) != 1.0:
             x = time_stretch(x, ep["speed"], tmp)
         lead, tail = sc.get("lead", 0.12), sc.get("tail", 0.3)
@@ -554,9 +640,10 @@ def render_episode(ep_path: str, out_path: str, preview: bool = False, keep_tmp:
 
     # 2) captions (word-aligned with faster-whisper when available)
     captions = []
-    aligner = Aligner.get(ep.get("whisper_model", "small"), tmp) if ep.get("align", True) else None
+    need_align = ep.get("align", True) and not word_times
+    aligner = Aligner.get(ep.get("whisper_model", "small"), tmp) if need_align else None
     for sc in scenes:
-        words = aligner.words(sc["_wav"], sc.get("lang", ep.get("lang", "tr"))) if aligner else None
+        words = sc.get("_words") or (aligner.words(sc["_wav"], sc.get("lang", ep.get("lang", "tr"))) if aligner else None)
         captions += caption_track(sc["text"], *sc["_voice"], spoken=words)
 
     # 3) sfx timeline
@@ -584,7 +671,7 @@ def render_episode(ep_path: str, out_path: str, preview: bool = False, keep_tmp:
                 add(k, at + (0.12 if k == "stamp" else 0.0), e.get("sfx_gain", 0.8))
 
     music = music_bed(n_samp, ep.get("music", "mystery"))
-    mix = voice_track * 1.0 + sfx_track * 0.35 + music * 0.07
+    mix = voice_track * 1.0 + sfx_track * 0.35 + music * ep.get("music_gain", 0.07)
     mix = mix / max(1.0, np.abs(mix).max() / 0.95)
     mix_wav = os.path.join(tmp, "mix.wav")
     write_wav(mix_wav, mix)
@@ -626,7 +713,7 @@ def render_episode(ep_path: str, out_path: str, preview: bool = False, keep_tmp:
                 if key not in el_cache:
                     el_cache[key] = render_element(e, random.Random(seed), 0)
                 im, anc = el_cache[key]
-            dx, dy, s, rot, al = transform(e, te, ts, int(t * BOIL_FPS), idx)
+            dx, dy, s, rot, al = transform(e, te, ts, int(t * BOIL_FPS), idx, sc["_dur"])
             paste(frame, im, anc, (e["x"] + dx, e["y"] + dy), s, rot, al)
         # camera: punch-in on cut, then slow push
         z = 1.0 + 0.045 * (ts / max(0.1, sc["_dur"])) + 0.06 * max(0, 1 - ts / 0.22) ** 2

@@ -202,6 +202,231 @@ def el_comet(p, rng, t):
     return im, (hx, hy)
 
 
+@element("asteroid")
+def el_asteroid(p, rng, t):
+    """Lumpy grey space rock with craters (optional face)."""
+    s = p.get("size", 320)
+    W = s * 1.25
+    im, d = canvas(W, W)
+    c, r = W / 2, s / 2
+    import random as _r
+    fr = _r.Random(p.get("seed", 4))  # shape stays put, outline boils
+    body = Image.new("L", im.size, 0)
+    pts = blob_pts(c, c, r, r * 0.82, fr, 0.22, rot=0.4)
+    ImageDraw.Draw(body).polygon(pts, fill=255)
+    shape(d, pts, rng, fill=(150, 140, 128, 255), w=7)
+    for _ in range(6):
+        cx_, cy_ = c + fr.uniform(-0.55, 0.55) * r, c + fr.uniform(-0.45, 0.45) * r
+        rr = r * fr.uniform(0.08, 0.18)
+        ellipse(d, cx_, cy_, rr, rr * 0.8, rng, fill=(115, 105, 95, 255), outline=(80, 72, 64, 255), w=4)
+    shade, sd = canvas(W, W)
+    sd.ellipse([c - r * 0.5, c - r * 0.5, c + r * 1.6, c + r * 1.6], fill=(20, 10, 30, 90))
+    shade.putalpha(ImageChops.multiply(shade.getchannel("A"), body))
+    im.alpha_composite(shade)
+    if p.get("mood"):
+        face(ImageDraw.Draw(im), c, c, r * 0.55, p["mood"], rng)
+    return im, (c, c)
+
+
+@element("eiffel")
+def el_eiffel(p, rng, t):
+    s = p.get("size", 700)
+    W = s * 0.62
+    im, d = canvas(W, s)
+    cx = W / 2
+    col = (120, 90, 60, 255)
+    for sx in (-1, 1):
+        line(d, [(cx + sx * W * 0.45, s * 0.98), (cx + sx * W * 0.2, s * 0.55), (cx + sx * W * 0.06, s * 0.2), (cx, s * 0.03)], rng, 9, col)
+    for yy, ww in ((0.55, 0.22), (0.35, 0.12), (0.2, 0.07)):
+        line(d, [(cx - W * ww, s * yy), (cx + W * ww, s * yy)], rng, 10, col)
+    d.arc([cx - W * 0.3, s * 0.72, cx + W * 0.3, s * 1.1], 180, 360, fill=col, width=9)
+    for k in range(8):  # lattice scribbles
+        y0 = s * (0.58 + k * 0.05)
+        line(d, [(cx - W * (0.2 + k * 0.03), y0), (cx + W * (0.2 + k * 0.03), y0 + s * 0.04)], rng, 3, col)
+    return im, (cx, s / 2)
+
+
+@element("ark")
+def el_ark(p, rng, t):
+    """Wooden ark / big boat with a cabin."""
+    s = p.get("size", 700)
+    W, H = s, s * 0.6
+    im, d = canvas(W, H)
+    wood, dark = (150, 95, 50, 255), (95, 60, 30, 255)
+    hull = [(W * 0.02, H * 0.42), (W * 0.98, H * 0.42), (W * 0.86, H * 0.9), (W * 0.14, H * 0.9)]
+    shape(d, hull, rng, fill=wood, w=7)
+    for k in range(1, 4):
+        y = H * (0.42 + 0.12 * k)
+        line(d, [(W * (0.02 + 0.04 * k), y), (W * (0.98 - 0.04 * k), y)], rng, 4, dark)
+    rect(d, W * 0.3, H * 0.14, W * 0.7, H * 0.42, rng, fill=(175, 120, 70, 255), w=6)
+    shape(d, [(W * 0.26, H * 0.16), (W * 0.5, H * 0.02), (W * 0.74, H * 0.16)], rng, fill=dark, w=6)
+    for x in (0.38, 0.5, 0.62):
+        rect(d, W * x - W * 0.03, H * 0.22, W * x + W * 0.03, H * 0.3, rng, fill=(255, 220, 120, 255), w=3, skew=1)
+    if p.get("mood"):
+        face(d, W * 0.5, H * 0.66, H * 0.16, p["mood"], rng)
+    return im, (W / 2, H / 2)
+
+
+@element("drill")
+def el_drill(p, rng, t):
+    """Drilling rig (sondaj kulesi)."""
+    s = p.get("size", 600)
+    W = s * 0.7
+    im, d = canvas(W, s)
+    cx = W / 2
+    col = (230, 160, 40, 255)
+    for sx in (-1, 1):
+        line(d, [(cx + sx * W * 0.35, s * 0.78), (cx + sx * W * 0.06, s * 0.05)], rng, 8, col)
+    for k in range(5):
+        y = s * (0.15 + k * 0.13)
+        w_ = W * (0.08 + k * 0.055)
+        line(d, [(cx - w_, y), (cx + w_, y + s * 0.06)], rng, 4, col)
+        line(d, [(cx + w_, y), (cx - w_, y + s * 0.06)], rng, 4, col)
+    rect(d, cx - W * 0.4, s * 0.76, cx + W * 0.4, s * 0.84, rng, fill=(90, 90, 100, 255), w=5)
+    line(d, [(cx, s * 0.05), (cx, s * 0.98)], rng, 7, (60, 60, 70, 255))
+    return im, (cx, s / 2)
+
+
+@element("rain", animated=True, cut=False)
+def el_rain(p, rng, t):
+    """Full-screen animated rain streaks."""
+    W, H = p.get("w", 1080), p.get("h", 1600)
+    im, d = canvas(W, H)
+    import random as _r
+    pr = _r.Random(9)
+    n = p.get("count", 90)
+    sp = p.get("speed", 1500)
+    for _ in range(n):
+        x0, ph, L = pr.uniform(-100, W), pr.uniform(0, H), pr.uniform(40, 90)
+        y = (ph + t * sp) % (H + 100) - 100
+        x = x0 + (y * 0.18)
+        d.line([(x, y), (x + L * 0.18, y + L)], fill=(170, 200, 255, 190), width=4)
+    return im, (W / 2, H / 2)
+
+
+@element("water", animated=True, cut=False)
+def el_water(p, rng, t):
+    """Wavy sea; its top sits at the element's y. Animate rising with move."""
+    W, H = 1300, p.get("h", 1400)
+    im, d = canvas(W, H)
+    amp = p.get("amp", 30)
+    for k, col in enumerate([(30, 70, 160, 255), (40, 95, 190, 235), (70, 130, 220, 220)]):
+        top = []
+        for xi in range(0, W + 20, 20):
+            y = 30 + k * 45 + amp * math.sin(xi * 0.012 + t * (1.6 + 0.5 * k) + k * 1.3)
+            top.append((xi, y))
+        shape(d, top + [(W, H), (0, H)], rng, fill=col, outline=INK if k == 0 else None, w=5, amp=1)
+        if k == 2:  # foam
+            for (x, y) in top[::5]:
+                ellipse(d, x, y, 14, 7, rng, fill=WHITE, outline=None, w=0, wob=0.3)
+    return im, (W / 2, 30)
+
+
+@element("mountain")
+def el_mountain(p, rng, t):
+    s = p.get("size", 800)
+    W, H = s * 1.3, s
+    im, d = canvas(W, H)
+    pts = [(0, H), (W * 0.32, H * 0.25), (W * 0.42, H * 0.3), (W * 0.52, H * 0.05), (W * 0.7, H * 0.4), (W, H)]
+    shape(d, pts, rng, fill=(120, 110, 125, 255), w=7)
+    if p.get("snow", True):
+        shape(d, [(W * 0.43, H * 0.29), (W * 0.52, H * 0.05), (W * 0.62, H * 0.27), (W * 0.56, H * 0.22),
+                  (W * 0.5, H * 0.28)], rng, fill=WHITE, w=5)
+    return im, (W / 2, H / 2)
+
+
+@element("animal")
+def el_animal(p, rng, t):
+    """Doodle animals: lion|elephant|giraffe|sheep|dove|cat."""
+    s = p.get("size", 300)
+    kind = p.get("kind", "sheep")
+    im, d = canvas(s * 1.4, s * 1.4)
+    c = s * 0.7
+    leg = (60, 50, 40, 255)
+    def legs(x0, x1, y0, y1, col):
+        for x in (x0, x0 + (x1 - x0) * 0.3, x0 + (x1 - x0) * 0.7, x1):
+            line(d, [(x, y0), (x, y1)], rng, s * 0.06, col)
+    if kind == "sheep":
+        legs(c - s * 0.25, c + s * 0.25, c + s * 0.1, c + s * 0.4, INK)
+        for k in range(7):
+            a = 2 * math.pi * k / 7
+            ellipse(d, c + s * 0.26 * math.cos(a), c + s * 0.15 * math.sin(a), s * 0.15, s * 0.13, rng, fill=WHITE, w=4)
+        ellipse(d, c, c, s * 0.3, s * 0.18, rng, fill=WHITE, outline=None, w=0)
+        ellipse(d, c + s * 0.38, c - s * 0.08, s * 0.12, s * 0.1, rng, fill=INK, w=3)
+        ellipse(d, c + s * 0.41, c - s * 0.1, s * 0.02, s * 0.02, rng, fill=WHITE, w=0)
+    elif kind == "lion":
+        legs(c - s * 0.3, c + s * 0.2, c + s * 0.05, c + s * 0.4, (200, 150, 60, 255))
+        ellipse(d, c - s * 0.05, c, s * 0.35, s * 0.18, rng, fill=(230, 170, 70, 255), w=5)
+        line(d, [(c - s * 0.38, c), (c - s * 0.55, c - s * 0.15)], rng, 5, INK)
+        shape(d, blob_pts(c + s * 0.3, c - s * 0.12, s * 0.22, s * 0.22, rng, 0.25), rng, fill=(170, 90, 30, 255), w=5)
+        ellipse(d, c + s * 0.32, c - s * 0.1, s * 0.13, s * 0.13, rng, fill=(240, 190, 90, 255), w=4)
+        face(d, c + s * 0.32, c - s * 0.1, s * 0.1, p.get("mood", "happy"), rng)
+    elif kind == "elephant":
+        legs(c - s * 0.3, c + s * 0.2, c + s * 0.05, c + s * 0.42, (130, 130, 145, 255))
+        ellipse(d, c - s * 0.05, c - s * 0.02, s * 0.38, s * 0.24, rng, fill=(150, 150, 165, 255), w=5)
+        ellipse(d, c + s * 0.32, c - s * 0.15, s * 0.18, s * 0.17, rng, fill=(150, 150, 165, 255), w=5)
+        ellipse(d, c + s * 0.22, c - s * 0.12, s * 0.12, s * 0.16, rng, fill=(170, 170, 185, 255), w=4)
+        line(d, [(c + s * 0.45, c - s * 0.1), (c + s * 0.52, c + s * 0.1), (c + s * 0.6, c + s * 0.15)], rng, s * 0.07, (150, 150, 165, 255))
+        ellipse(d, c + s * 0.36, c - s * 0.2, s * 0.025, s * 0.03, rng, fill=INK, w=0)
+    elif kind == "giraffe":
+        legs(c - s * 0.25, c + s * 0.15, c + s * 0.05, c + s * 0.5, (220, 170, 60, 255))
+        ellipse(d, c - s * 0.05, c, s * 0.28, s * 0.14, rng, fill=(240, 190, 70, 255), w=5)
+        line(d, [(c + s * 0.15, c - s * 0.05), (c + s * 0.3, c - s * 0.55)], rng, s * 0.08, (240, 190, 70, 255))
+        ellipse(d, c + s * 0.35, c - s * 0.58, s * 0.1, s * 0.07, rng, fill=(240, 190, 70, 255), w=4)
+        for _ in range(5):
+            ellipse(d, c + rng.uniform(-0.25, 0.15) * s, c + rng.uniform(-0.08, 0.08) * s, s * 0.04, s * 0.035, rng,
+                    fill=(150, 90, 30, 255), w=0)
+        ellipse(d, c + s * 0.37, c - s * 0.6, s * 0.015, s * 0.015, rng, fill=INK, w=0)
+    elif kind == "dove":
+        ellipse(d, c, c, s * 0.28, s * 0.16, rng, fill=WHITE, w=5)
+        ellipse(d, c + s * 0.27, c - s * 0.1, s * 0.11, s * 0.1, rng, fill=WHITE, w=5)
+        shape(d, [(c - s * 0.05, c - s * 0.05), (c - s * 0.3, c - s * 0.45), (c + s * 0.12, c - s * 0.08)], rng, fill=(235, 235, 240, 255), w=5)
+        shape(d, [(c + s * 0.37, c - s * 0.11), (c + s * 0.47, c - s * 0.07), (c + s * 0.37, c - s * 0.05)], rng, fill=ORANGE, w=3)
+        ellipse(d, c + s * 0.3, c - s * 0.13, s * 0.02, s * 0.02, rng, fill=INK, w=0)
+        if p.get("branch", True):
+            line(d, [(c + s * 0.45, c - s * 0.07), (c + s * 0.62, c + s * 0.05)], rng, 4, (90, 60, 30, 255))
+            for k in range(3):
+                ellipse(d, c + s * (0.5 + k * 0.05), c - s * 0.03 + k * s * 0.04, s * 0.04, s * 0.02, rng, fill=GREEN, w=2)
+    if p.get("flip"):
+        im = im.transpose(Image.FLIP_LEFT_RIGHT)
+    return im, (c, c)
+
+
+@element("hammer")
+def el_hammer(p, rng, t):
+    s = p.get("size", 260)
+    im, d = canvas(s, s)
+    line(d, [(s * 0.3, s * 0.85), (s * 0.62, s * 0.32)], rng, s * 0.07, (150, 100, 50, 255))
+    rect(d, s * 0.45, s * 0.12, s * 0.85, s * 0.32, rng, fill=(120, 120, 130, 255), w=5)
+    return im, (s / 2, s / 2)
+
+
+@element("planks")
+def el_planks(p, rng, t):
+    s = p.get("size", 400)
+    im, d = canvas(s, s * 0.6)
+    for k in range(4):
+        y = s * 0.12 + k * s * 0.11
+        rect(d, s * 0.05 + k * 8, y, s * 0.95 - k * 8, y + s * 0.08, rng, fill=(170, 115, 60, 255), w=4, skew=3)
+    return im, (s / 2, s * 0.3)
+
+
+@element("light", cut=False)
+def el_light(p, rng, t):
+    """Respectful representation of a prophet: a soft glowing light (no face)."""
+    s = p.get("size", 360)
+    im, d = canvas(s * 1.4, s * 1.4)
+    c = s * 0.7
+    for k in range(6, 0, -1):
+        r = s * 0.1 * k
+        d.ellipse([c - r, c - r, c + r, c + r], fill=(255, 240, 180, int(35 + 20 * (6 - k))))
+    shape(d, star_pts(c, c, s * 0.62, s * 0.2, 8, rng, 0.2, 0.15), rng, fill=(255, 245, 200, 120), outline=None, w=0)
+    im = im.filter(ImageFilter.GaussianBlur(6))
+    d = ImageDraw.Draw(im)
+    ellipse(d, c, c, s * 0.16, s * 0.16, rng, fill=(255, 252, 230, 255), outline=None, w=0)
+    return im, (c, c)
+
+
 @element("blackhole")
 def el_blackhole(p, rng, t):
     s = p.get("size", 500)
