@@ -1,0 +1,114 @@
+{
+ "shots": [
+  {
+   "clip": "clips/pixabay_video_358854.mp4",
+   "start": 2,
+   "dur": 11.7
+  },
+  {
+   "clip": "clips/pixabay_video_89182.mp4",
+   "start": 6,
+   "dur": 12.3
+  }
+ ],
+ "base_scale": 0.42,
+ "phases": [
+  {
+   "t": 2.6,
+   "dur": 2.0,
+   "scale": 0.85,
+   "label": "inhale"
+  },
+  {
+   "t": 4.6,
+   "dur": 1.0,
+   "scale": 1.0,
+   "label": "a little more"
+  },
+  {
+   "t": 5.6,
+   "dur": 6.0,
+   "scale": 0.42,
+   "label": "exhale"
+  },
+  {
+   "t": 11.8,
+   "dur": 2.0,
+   "scale": 0.85,
+   "label": "inhale"
+  },
+  {
+   "t": 13.8,
+   "dur": 1.0,
+   "scale": 1.0,
+   "label": "a little more"
+  },
+  {
+   "t": 14.8,
+   "dur": 6.0,
+   "scale": 0.42,
+   "label": "exhale"
+  }
+ ],
+ "cues": [
+  {
+   "t": 0.25,
+   "wav": "audio/t0.wav"
+  },
+  {
+   "t": 2.6,
+   "wav": "audio/t1.wav"
+  },
+  {
+   "t": 4.6,
+   "wav": "audio/t2.wav"
+  },
+  {
+   "t": 5.75,
+   "wav": "audio/t3.wav"
+  },
+  {
+   "t": 11.25,
+   "wav": "audio/t4.wav"
+  },
+  {
+   "t": 13.8,
+   "wav": "audio/t5.wav"
+  },
+  {
+   "t": 14.95,
+   "wav": "audio/t6.wav"
+  },
+  {
+   "t": 21.1,
+   "wav": "audio/t7.wav"
+  }
+ ],
+ "texts": [
+  {
+   "at": 0.0,
+   "end": 2.5,
+   "lines": [
+    "feeling anxious?",
+    "breathe with me"
+   ]
+  },
+  {
+   "at": 21.0,
+   "end": 24.0,
+   "lines": [
+    "better?"
+   ]
+  },
+  {
+   "at": 21.3,
+   "end": 24.0,
+   "style": "Small",
+   "y": 1010,
+   "lines": [
+    "save this for when you need it"
+   ]
+  }
+ ],
+ "out": "out/breathe_with_me_sigh.mp4"
+}
