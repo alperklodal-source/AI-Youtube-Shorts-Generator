@@ -1,69 +1,81 @@
 {
- "voice": "audio/brian3.wav",
- "words": "audio/brian3.words.json",
+ "voice": "audio/brian5c.wav",
+ "words": "audio/brian5c.words.json",
  "shots": [
   {
    "clip": "clips/pixabay_video_384789.mp4",
    "start": 0,
-   "dur": 1.0
-  },
-  {
-   "clip": "clips/pixabay_video_384789.mp4",
-   "start": 1.0,
-   "dur": 1.9,
+   "dur": 0.8,
    "text": "GUESS THE PLACE"
   },
   {
-   "clip": "clips/pixabay_video_384792.mp4",
+   "clip": "clips/pixabay_video_384789.mp4",
+   "start": 0.8,
+   "dur": 1.8,
+   "text": "GUESS THE PLACE"
+  },
+  {
+   "clip": "clips/pixabay_video_337420.mp4",
    "start": 1,
-   "dur": 1.7,
+   "dur": 1.15,
    "text": "GUESS THE PLACE"
   },
   {
    "clip": "clips/pixabay_video_384790.mp4",
    "start": 1,
-   "dur": 1.0,
+   "dur": 0.85,
    "text": "COMMENT YOUR GUESS"
   },
   {
    "clip": "clips/pixabay_video_383986.mp4",
    "start": 1,
-   "dur": 1.1,
+   "dur": 0.95,
+   "text": "COMMENT YOUR GUESS"
+  },
+  {
+   "clip": "clips/pixabay_video_384792.mp4",
+   "start": 1,
+   "dur": 1.4,
    "text": "COMMENT YOUR GUESS"
   },
   {
    "clip": "clips/pixabay_video_384789.mp4",
-   "start": 4.5,
-   "dur": 1.6
-  },
-  {
-   "clip": "clips/pixabay_video_337420.mp4",
-   "start": 1,
-   "dur": 1.6
+   "start": 5.3,
+   "dur": 1.75
   }
  ],
- "reveal": {
-  "at": 6.75,
-  "title": "FAROE ISLANDS"
- },
- "fact": {
-  "at": 8.3,
-  "lines": [
-   "70,000 SHEEP",
-   "54,000 PEOPLE"
-  ]
- },
  "out": "out/faroe_islands_short.mp4",
  "fix": {
   "1": "ONE",
   "%": "PERCENT"
  },
- "voice_delay": 1.0,
+ "voice_delay": 0.8,
  "music": {
   "file": "music/ambient_calm_atlasaudio.mp3",
   "start": 2.5,
   "intro_vol": 0.6,
   "bed_vol": 0.16,
   "credit": "Ambient Calm \u2013 AtlasAudio (Pixabay)"
- }
+ },
+ "captions_until": 7.0,
+ "overlays": [
+  {
+   "at": 2.7,
+   "end": 3.75,
+   "style": "Fact",
+   "lines": [
+    "70,000 SHEEP",
+    "54,000 PEOPLE"
+   ]
+  },
+  {
+   "at": 7.3,
+   "style": "Reveal",
+   "lines": [
+    "FAROE",
+    "ISLANDS"
+   ],
+   "pop": true
+  }
+ ]
 }

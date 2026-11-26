@@ -49,6 +49,8 @@ ass = ["[Script Info]", "ScriptType: v4.00+", f"PlayResX: {W}", f"PlayResY: {H}"
        "Style: Reveal,Inter Black,120,&H0000E5FF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,9,4,5,40,40,0,1",
        "Style: Fact,Inter Black,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,7,3,5,40,40,0,1",
        "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"]
+cap_end = S.get('captions_until', 1e9)
+groups = [g for g in groups if g[0]['s'] < cap_end]
 for gi, g in enumerate(groups):  # active word highlighted yellow
     nxt = groups[gi + 1][0]['s'] if gi + 1 < len(groups) else 1e9
     for i, w in enumerate(g):
@@ -66,10 +68,13 @@ if 'countdown_at' in S:
     for i, n in enumerate('321'):
         a = S['countdown_at'] + i * step
         ass.append(f"Dialogue: 2,{ts(a)},{ts(a + step)},Big,,0,0,0,,{{\\fscx140\\fscy140\\t(0,200,\\fscx100\\fscy100)}}{n}")
-r = S['reveal']
-ass.append(f"Dialogue: 2,{ts(r['at'])},{ts(r.get('end', S['fact']['at']))},Reveal,,0,0,0,,{{\\pos({W//2},{H//2 - 140})\\fscx60\\fscy60\\t(0,180,\\fscx105\\fscy105)\\t(180,300,\\fscx100\\fscy100)}}{r['title']}")
-f = S['fact']
-ass.append(f"Dialogue: 2,{ts(f['at'])},{ts(total)},Fact,,0,0,0,,{{\\pos({W//2},{H//2 - 160})\\fad(120,0)}}" + r"\N".join(f['lines']))
+for o in S.get('overlays', []):  # {"at","end","style": Reveal|Fact, "lines": [...], "pop": bool}
+    end = o.get('end', total)
+    fx = (r"\fscx60\fscy60\t(0,180,\fscx106\fscy106)\t(180,320,\fscx100\fscy100)" if o.get('pop')
+          else r"\fad(120,0)")
+    y = o.get('y', H // 2 - 150)
+    ass.append(f"Dialogue: 2,{ts(o['at'])},{ts(end)},{o.get('style', 'Fact')},,0,0,0,,{{\\pos({W//2},{y}){fx}}}"
+               + r"\N".join(o['lines']))
 (proj / 'out').mkdir(exist_ok=True)
 (proj / 'out' / 'subs.ass').write_text('\n'.join(ass) + '\n')
 
