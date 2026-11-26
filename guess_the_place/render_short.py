@@ -25,7 +25,7 @@ def ts(t):
 
 
 # ---------- subtitles (ASS) ----------
-words = json.load(open(proj / S['words']))
+words = json.load(open(proj / S['words'])) if S.get('words') else []  # no voice -> no captions
 for w in words:  # fix ASR spellings, e.g. "1" -> "one"
     w['w'] = S.get('fix', {}).get(w['w'], w['w'])
 words = [w for w in words if w['w']]  # a fix may blank a token (e.g. "3" + ",000")
@@ -48,6 +48,7 @@ ass = ["[Script Info]", "ScriptType: v4.00+", f"PlayResX: {W}", f"PlayResY: {H}"
        "Style: Top,Inter Black,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,6,2,8,60,60,230,1",
        "Style: Big,Inter Black,190,&H0000E5FF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,10,4,5,40,40,0,1",
        "Style: Reveal,Inter Black,120,&H0000E5FF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,9,4,5,40,40,0,1",
+       "Style: Line,Inter Bold,72,&H00FFFFFF,&H00FFFFFF,&H00000000,&H78000000,1,0,0,0,100,100,0,0,1,5,3,5,70,70,0,1",
        "Style: Fact,Inter Black,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,7,3,5,40,40,0,1",
        "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"]
 cap_end = S.get('captions_until', 1e9)
@@ -84,7 +85,8 @@ cmd = ['ffmpeg', '-v', 'error', '-y']
 for s in S['shots']:
     cmd += ['-ss', str(s['start']), '-t', str(s['dur']), '-i', str(proj / s['clip'])]
 vi = len(S['shots'])
-cmd += ['-i', str(proj / S['voice'])]
+cmd += (['-i', str(proj / S['voice'])] if S.get('voice')
+        else ['-f', 'lavfi', '-t', str(total), '-i', 'anullsrc=r=48000:cl=stereo'])  # silent track
 M = S.get('music')
 if M:
     cmd += ['-ss', str(M.get('start', 0)), '-i', str(proj / M['file'])]
@@ -95,7 +97,10 @@ for i, s in enumerate(S['shots']):
 fc.append(''.join(f"[v{i}]" for i in range(vi)) + f"concat=n={vi}:v=1:a=0,eq=contrast=1.06:saturation=1.12,"
           f"ass={proj / 'out' / 'subs.ass'}[vout]")
 pa, pz = S.get('pause_after', 1e4), S.get('pause', 0)
-fc.append(f"[{vi}:a]aresample=48000,asplit=2[a1][a2];[a1]atrim=0:{pa},asetpts=PTS-STARTPTS[p1];"
+if not S.get('voice'):
+    fc.append(f"[{vi}:a]anull[voice]")
+else:
+  fc.append(f"[{vi}:a]aresample=48000,asplit=2[a1][a2];[a1]atrim=0:{pa},asetpts=PTS-STARTPTS[p1];"
           f"[a2]atrim={pa},asetpts=PTS-STARTPTS,adelay={int(pz * 1000)}:all=1[p2];"
           f"[p1][p2]concat=n=2:v=0:a=1,atrim=0:{S.get('voice_until', 1e4)},afade=t=out:st={S.get('voice_until', 1e4) - 0.08}:d=0.08,adelay={int(VD * 1000)}:all=1,loudnorm=I=-14:TP=-2,apad,atrim=0:{total}[voice]")
 if M:
