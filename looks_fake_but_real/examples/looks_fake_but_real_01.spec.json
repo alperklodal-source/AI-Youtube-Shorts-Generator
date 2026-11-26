@@ -1,0 +1,100 @@
+{
+ "voice": "audio/brianc.wav",
+ "words": "audio/brianc.words.json",
+ "voice_delay": 0.3,
+ "captions_until": 11.1,
+ "fix": {
+  "3": "3,000",
+  ",000": "",
+  "at": "it"
+ },
+ "music": {
+  "file": "music/orchestral_atlasaudio.mp3",
+  "start": 15.17,
+  "intro_vol": 0.32,
+  "bed_vol": 0.3,
+  "outro_vol": 0.85,
+  "credit": "Orchestral \u2013 AtlasAudio (Pixabay)"
+ },
+ "shots": [
+  {
+   "clip": "clips/pixabay_video_77137.mp4",
+   "start": 10,
+   "dur": 0.85,
+   "text": "LOOKS FAKE?"
+  },
+  {
+   "clip": "clips/pixabay_video_203872.mp4",
+   "start": 5,
+   "dur": 0.85,
+   "text": "LOOKS FAKE?"
+  },
+  {
+   "clip": "clips/pixabay_video_267749.mp4",
+   "start": 2,
+   "dur": 0.9,
+   "text": "IT'S REAL."
+  },
+  {
+   "clip": "clips/pixabay_video_385520.mp4",
+   "start": 1,
+   "dur": 1.3,
+   "text": "1 \u00b7 CHINA"
+  },
+  {
+   "clip": "clips/pixabay_video_363498.mp4",
+   "start": 0,
+   "dur": 1.5,
+   "text": "1 \u00b7 CHINA"
+  },
+  {
+   "clip": "clips/pixabay_video_385164.mp4",
+   "start": 0,
+   "dur": 1.5,
+   "text": "2 \u00b7 CANADA"
+  },
+  {
+   "clip": "clips/pixabay_video_204095.mp4",
+   "start": 2,
+   "dur": 1.7,
+   "text": "2 \u00b7 CANADA"
+  },
+  {
+   "clip": "clips/pixabay_video_386854.mp4",
+   "start": 1,
+   "dur": 1.3,
+   "text": "3 \u00b7 TURKEY"
+  },
+  {
+   "clip": "clips/pixabay_video_169236.mp4",
+   "start": 2,
+   "dur": 1.3,
+   "text": "3 \u00b7 TURKEY"
+  },
+  {
+   "clip": "clips/pixabay_video_77137.mp4",
+   "start": 8,
+   "dur": 2.0
+  }
+ ],
+ "overlays": [
+  {
+   "at": 11.2,
+   "style": "Reveal",
+   "lines": [
+    "WHICH ONE",
+    "WOULD YOU VISIT?"
+   ],
+   "pop": true
+  },
+  {
+   "at": 11.6,
+   "style": "Fact",
+   "lines": [
+    "1, 2 OR 3?"
+   ],
+   "y": 1180
+  }
+ ],
+ "out": "out/looks_fake_but_real.mp4"
+}

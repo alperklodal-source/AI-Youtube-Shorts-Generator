@@ -28,6 +28,7 @@ def ts(t):
 words = json.load(open(proj / S['words']))
 for w in words:  # fix ASR spellings, e.g. "1" -> "one"
     w['w'] = S.get('fix', {}).get(w['w'], w['w'])
+words = [w for w in words if w['w']]  # a fix may blank a token (e.g. "3" + ",000")
 VD = S.get('voice_delay', 0.0)  # seconds of landscape + music before narration
 for w in words:  # shift words after the inserted pause, then by the intro
     if w['s'] >= S.get('pause_after', 1e9):
