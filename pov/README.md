@@ -7,3 +7,8 @@ Render with `../guess_the_place/render_short.py PROJECT`.
 
 Footage QA: reject illustrations, CGI renders and AI-looking "cozy ambience" loops (many recent ~50 s Pixabay
 uploads), and clips whose vertical centre-crop loses the subject.
+
+Contrast variant (`examples/pov_left_the_city.spec.json`): 6 fast city shots (0.6–0.8 s, desaturated/cool via per-shot
+`vf`) → 5 slow nature shots (~2 s, warm). Text in the lower third so it never covers faces.
+Music via the YouTube Shorts library is licensed: no claim, video stays monetised; YouTube routes half of that Short's
+creator-pool revenue (one track) to music partners, the creator's 45 % share is unchanged.

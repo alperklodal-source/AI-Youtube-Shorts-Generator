@@ -93,7 +93,7 @@ if M:
 fc = []
 for i, s in enumerate(S['shots']):
     fc.append(f"[{i}:v]fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,"
-              f"trim=duration={s['dur']},setpts=PTS-STARTPTS[v{i}]")
+              f"trim=duration={s['dur']},setpts=PTS-STARTPTS{(',' + s['vf']) if s.get('vf') else ''}[v{i}]")
 fc.append(''.join(f"[v{i}]" for i in range(vi)) + f"concat=n={vi}:v=1:a=0,eq=contrast=1.06:saturation=1.12,"
           f"ass={proj / 'out' / 'subs.ass'}[vout]")
 pa, pz = S.get('pause_after', 1e4), S.get('pause', 0)

@@ -1,0 +1,83 @@
+{
+ "shots": [
+  {
+   "clip": "clips/pixabay_video_3630.mp4",
+   "start": 3,
+   "dur": 0.7,
+   "vf": "eq=saturation=0.45:contrast=1.1:brightness=-0.03,colorbalance=bs=0.08:bm=0.04"
+  },
+  {
+   "clip": "clips/pixabay_video_7723.mp4",
+   "start": 4,
+   "dur": 0.6,
+   "vf": "eq=saturation=0.45:contrast=1.1:brightness=-0.03,colorbalance=bs=0.08:bm=0.04"
+  },
+  {
+   "clip": "clips/pixabay_video_20581.mp4",
+   "start": 5,
+   "dur": 0.6,
+   "vf": "eq=saturation=0.45:contrast=1.1:brightness=-0.03,colorbalance=bs=0.08:bm=0.04"
+  },
+  {
+   "clip": "clips/pixabay_video_6398.mp4",
+   "start": 3,
+   "dur": 0.6,
+   "vf": "eq=saturation=0.45:contrast=1.1:brightness=-0.03,colorbalance=bs=0.08:bm=0.04"
+  },
+  {
+   "clip": "clips/pixabay_video_346879.mp4",
+   "start": 2,
+   "dur": 0.8,
+   "vf": "eq=saturation=0.45:contrast=1.1:brightness=-0.03,colorbalance=bs=0.08:bm=0.04"
+  },
+  {
+   "clip": "clips/pixabay_video_99223.mp4",
+   "start": 6,
+   "dur": 0.6,
+   "vf": "eq=saturation=0.45:contrast=1.1:brightness=-0.03,colorbalance=bs=0.08:bm=0.04"
+  },
+  {
+   "clip": "clips/pixabay_video_160975.mp4",
+   "start": 3,
+   "dur": 2.0,
+   "vf": "colorbalance=rs=0.04:rm=0.03:bh=-0.03"
+  },
+  {
+   "clip": "clips/pixabay_video_358854.mp4",
+   "start": 6,
+   "dur": 2.0,
+   "vf": "colorbalance=rs=0.04:rm=0.03:bh=-0.03"
+  },
+  {
+   "clip": "clips/pixabay_video_159066.mp4",
+   "start": 1,
+   "dur": 1.8,
+   "vf": "colorbalance=rs=0.04:rm=0.03:bh=-0.03"
+  },
+  {
+   "clip": "clips/pixabay_video_89182.mp4",
+   "start": 8,
+   "dur": 1.8,
+   "vf": "colorbalance=rs=0.04:rm=0.03:bh=-0.03"
+  },
+  {
+   "clip": "clips/pixabay_video_210786.mp4",
+   "start": 4,
+   "dur": 2.2,
+   "vf": "colorbalance=rs=0.04:rm=0.03:bh=-0.03"
+  }
+ ],
+ "overlays": [
+  {
+   "at": 0.15,
+   "end": 3.9,
+   "style": "Line",
+   "y": 1460,
+   "lines": [
+    "pov: you finally",
+    "left the city behind"
+   ]
+  }
+ ],
+ "out": "out/pov_left_the_city.mp4"
+}
