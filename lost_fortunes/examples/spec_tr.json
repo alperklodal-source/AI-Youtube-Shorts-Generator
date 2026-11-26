@@ -1,0 +1,115 @@
+{
+ "fonts": {
+  "Inter Black": "Montserrat Black",
+  "Inter Bold": "Montserrat ExtraBold"
+ },
+ "style_override": {
+  "Line": "Style: Line,Montserrat ExtraBold,74,&H00FFFFFF,&H00FFFFFF,&H50000000,&H50000000,1,0,0,0,100,100,0,0,3,18,0,5,60,60,0,1",
+  "Fact": "Style: Fact,Montserrat Black,104,&H00FFFFFF,&H00FFFFFF,&H50000000,&H50000000,1,0,0,0,100,100,0,0,3,22,0,5,50,50,0,1",
+  "Reveal": "Style: Reveal,Montserrat Black,128,&H0000E5FF,&H00FFFFFF,&H50000000,&H50000000,1,0,0,0,100,100,0,0,3,24,0,5,40,40,0,1"
+ },
+ "voice": "audio/tr2cf.wav",
+ "words": "audio/tr2cf.words.json",
+ "voice_delay": 0.3,
+ "captions_until": 0,
+ "music": {
+  "file": "music/suspense_mystery_leberch.mp3",
+  "start": 0,
+  "intro_vol": 0.35,
+  "bed_vol": 0.22,
+  "outro_vol": 0.35
+ },
+ "out": "out/lost_750m_bitcoin_tr.mp4",
+ "shots": [
+  {
+   "clip": "clips/pixabay_video_73328.mp4",
+   "start": 3,
+   "dur": 2.0
+  },
+  {
+   "clip": "clips/pixabay_video_41869.mp4",
+   "start": 1,
+   "dur": 1.4
+  },
+  {
+   "clip": "clips/pixabay_video_27453.mp4",
+   "start": 2,
+   "dur": 2.5
+  },
+  {
+   "clip": "clips/mixkit_mixkit_garbage-trucks-dumping-rubbish-in-landfill-49210.mp4",
+   "start": 3,
+   "dur": 2.5
+  },
+  {
+   "clip": "clips/pixabay_video_36473.mp4",
+   "start": 2,
+   "dur": 3.6
+  }
+ ],
+ "overlays": [
+  {
+   "at": 0.0,
+   "end": 2.0,
+   "style": "Fact",
+   "lines": [
+    "BUNU",
+    "ÇÖPE ATTI"
+   ],
+   "y": 800,
+   "pop": true
+  },
+  {
+   "at": 2.0,
+   "end": 3.4,
+   "style": "Fact",
+   "lines": [
+    "2013"
+   ],
+   "y": 800,
+   "pop": true
+  },
+  {
+   "at": 3.4,
+   "end": 5.9,
+   "style": "Fact",
+   "lines": [
+    "İÇİNDE:",
+    "{\\c&H00E5FF&}8.000 BITCOIN"
+   ],
+   "y": 780,
+   "pop": true
+  },
+  {
+   "at": 5.9,
+   "end": 8.4,
+   "style": "Reveal",
+   "lines": [
+    "750 MİLYON $"
+   ],
+   "y": 820,
+   "pop": true
+  },
+  {
+   "at": 8.4,
+   "end": 12.0,
+   "style": "Fact",
+   "lines": [
+    "MAHKEME:",
+    "KAZMAK YASAK"
+   ],
+   "y": 760,
+   "pop": true
+  },
+  {
+   "at": 10.3,
+   "end": 12.0,
+   "style": "Line",
+   "lines": [
+    "sen olsan kazar mıydın?"
+   ],
+   "y": 960,
+   "pop": false
+  }
+ ]
+}
