@@ -17,3 +17,11 @@ A (top) / B (bottom): same subject, one real (old Pixabay upload) and one AI (ta
 "WHICH ONE IS AI?" + 3.2 s draining bar → reveal (AI half replays its tell, optionally slowed via `tell_start`/
 `tell_speed`) with corner stamps AI / REAL and a one-line tell; ends on round-1 footage for the loop. A truly
 identical-scene AI twin would need a video generator, which this toolset doesn't include.
+
+## v2 (preferred by the user over the split-screen variant) — `examples/real_or_ai_02.spec.json`
+Breathing room between rounds: 0.9 s "ROUND n" card on the next clip's first frame. Landscape clips: `full: true`
+plus a `crop` around the subject (tight crop on the tell for the reveal). Per-segment `vf` (e.g. brighten dark aurora).
+Synthesized SFX (no licensing): clock ticks every 0.5 s during thinking time, low hit + chime on each stamp;
+limiter + headroom → ≈ −15 LUFS, −1.7 dBTP.
+Self-check rubric (aim ≥ 90): hook 15 · thinking time 10 · tell visibility 20 · accuracy 15 · pacing 10 ·
+visual quality 10 · ending/CTA/loop 10 · audio 10.

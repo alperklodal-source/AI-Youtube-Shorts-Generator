@@ -1,0 +1,337 @@
+{
+ "segments": [
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_342414.mp4",
+   "start": 0,
+   "dur": 1.2
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_342414.mp4",
+   "start": 1.2,
+   "dur": 2.6
+  },
+  {
+   "type": "freeze",
+   "clip": "clips/pixabay_video_342414.mp4",
+   "at": 3.75,
+   "dur": 3.2
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_342414.mp4",
+   "start": 3.8,
+   "dur": 3.2,
+   "speed": 0.6,
+   "full": true
+  },
+  {
+   "type": "freeze",
+   "clip": "clips/pixabay_video_2194.mp4",
+   "at": 0.5,
+   "dur": 0.9
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_2194.mp4",
+   "start": 0.5,
+   "dur": 3.0,
+   "vf": "eq=brightness=0.06:saturation=1.25:gamma=1.15"
+  },
+  {
+   "type": "freeze",
+   "clip": "clips/pixabay_video_2194.mp4",
+   "at": 3.45,
+   "dur": 3.2
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_2194.mp4",
+   "start": 3.5,
+   "dur": 2.6,
+   "vf": "eq=brightness=0.06:saturation=1.25:gamma=1.15"
+  },
+  {
+   "type": "freeze",
+   "clip": "clips/pixabay_video_380706.mp4",
+   "at": 0.0,
+   "dur": 0.9,
+   "full": true,
+   "crop": [
+    0.22,
+    0.05,
+    0.56,
+    0.9
+   ]
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_380706.mp4",
+   "start": 0.0,
+   "dur": 1.7,
+   "full": true,
+   "crop": [
+    0.22,
+    0.05,
+    0.56,
+    0.9
+   ]
+  },
+  {
+   "type": "freeze",
+   "clip": "clips/pixabay_video_380706.mp4",
+   "at": 1.65,
+   "dur": 3.2,
+   "full": true,
+   "crop": [
+    0.22,
+    0.05,
+    0.56,
+    0.9
+   ]
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_380706.mp4",
+   "start": 1.6,
+   "dur": 3.2,
+   "speed": 0.7,
+   "full": true,
+   "crop": [
+    0.3,
+    0.12,
+    0.4,
+    0.6
+   ]
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_342414.mp4",
+   "start": 0,
+   "dur": 2.6
+  }
+ ],
+ "texts": [
+  {
+   "at": 0,
+   "end": 1.2,
+   "style": "Big",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 880
+  },
+  {
+   "at": 0,
+   "end": 1.2,
+   "style": "Tag",
+   "lines": [
+    "SPOT THE AI \u00b7 3 ROUNDS"
+   ],
+   "y": 1060
+  },
+  {
+   "at": 1.2,
+   "end": 7.0,
+   "style": "Tag",
+   "lines": [
+    "ROUND 1/3"
+   ],
+   "y": 250
+  },
+  {
+   "at": 3.8,
+   "end": 7.0,
+   "style": "Q",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 880
+  },
+  {
+   "at": 3.9,
+   "end": 7.0,
+   "style": "Small",
+   "lines": [
+    "decide before the answer"
+   ],
+   "y": 1020
+  },
+  {
+   "at": 7.0,
+   "end": 10.2,
+   "style": "AI",
+   "lines": [
+    "AI"
+   ],
+   "y": 420,
+   "stamp": true
+  },
+  {
+   "at": 7.3,
+   "end": 10.2,
+   "style": "Tell",
+   "lines": [
+    "watch the right ear\u2026",
+    "and the goat that appears",
+    "out of nowhere"
+   ],
+   "y": 1520
+  },
+  {
+   "at": 10.2,
+   "end": 11.1,
+   "style": "Big",
+   "lines": [
+    "ROUND 2"
+   ],
+   "y": 960
+  },
+  {
+   "at": 11.1,
+   "end": 17.3,
+   "style": "Tag",
+   "lines": [
+    "ROUND 2/3"
+   ],
+   "y": 250
+  },
+  {
+   "at": 14.1,
+   "end": 17.3,
+   "style": "Q",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 880
+  },
+  {
+   "at": 14.2,
+   "end": 17.3,
+   "style": "Small",
+   "lines": [
+    "decide before the answer"
+   ],
+   "y": 1020
+  },
+  {
+   "at": 17.3,
+   "end": 19.9,
+   "style": "REAL",
+   "lines": [
+    "REAL"
+   ],
+   "y": 480,
+   "stamp": true
+  },
+  {
+   "at": 17.6,
+   "end": 19.9,
+   "style": "Tell",
+   "lines": [
+    "real northern lights",
+    "over Alaska"
+   ],
+   "y": 1460
+  },
+  {
+   "at": 19.9,
+   "end": 20.8,
+   "style": "Big",
+   "lines": [
+    "ROUND 3"
+   ],
+   "y": 960
+  },
+  {
+   "at": 20.8,
+   "end": 25.7,
+   "style": "Tag",
+   "lines": [
+    "ROUND 3/3"
+   ],
+   "y": 250
+  },
+  {
+   "at": 22.5,
+   "end": 25.7,
+   "style": "Q",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 560
+  },
+  {
+   "at": 22.6,
+   "end": 25.7,
+   "style": "Small",
+   "lines": [
+    "decide before the answer"
+   ],
+   "y": 1420
+  },
+  {
+   "at": 25.7,
+   "end": 28.9,
+   "style": "AI",
+   "lines": [
+    "AI"
+   ],
+   "y": 480,
+   "stamp": true
+  },
+  {
+   "at": 26.0,
+   "end": 28.9,
+   "style": "Tell",
+   "lines": [
+    "they both sip from",
+    "one tiny cup at once"
+   ],
+   "y": 1480
+  },
+  {
+   "at": 28.9,
+   "end": 31.5,
+   "style": "Big",
+   "lines": [
+    "how many",
+    "did you get?"
+   ],
+   "y": 860
+  },
+  {
+   "at": 29.2,
+   "end": 31.5,
+   "style": "Small",
+   "lines": [
+    "comment your score: 0/3 to 3/3"
+   ],
+   "y": 1080
+  }
+ ],
+ "timers": [
+  {
+   "at": 3.8,
+   "end": 7.0,
+   "y": 1110
+  },
+  {
+   "at": 14.1,
+   "end": 17.3,
+   "y": 1110
+  },
+  {
+   "at": 22.5,
+   "end": 25.7,
+   "y": 1490
+  }
+ ],
+ "music": {
+  "file": "music/suspense_mystery_leberch.mp3",
+  "start": 0,
+  "vol": 0.9
+ },
+ "out": "out/real_or_ai_02.mp4"
+}

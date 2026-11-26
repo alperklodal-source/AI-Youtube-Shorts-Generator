@@ -39,18 +39,23 @@ for k, s in enumerate(segs):
         sp = s.get('speed', 1.0)
         cmd += ['-ss', str(s['start']), '-t', f"{s['dur'] * sp + 0.2:.2f}", '-i', clip]
         if s.get('full'):  # whole frame visible: sharp, width-fitted over a blurred fill
-            fc.append(f"[{n}:v]setpts=(PTS-STARTPTS)/{sp},fps={FPS},trim=duration={s['dur']},setpts=PTS-STARTPTS,"
+            fc.append(f"[{n}:v]{cropf(s.get('crop'))}setpts=(PTS-STARTPTS)/{sp},fps={FPS},trim=duration={s['dur']},setpts=PTS-STARTPTS,"
                       f"split[a{k}][b{k}];[a{k}]{fit(W, H)},boxblur=30:2,eq=brightness=-0.15[bg{k}];"
                       f"[b{k}]scale={W}:-2,setsar=1[fg{k}];[bg{k}][fg{k}]overlay=0:(H-h)/2[s{k}]")
         else:
             fc.append(f"[{n}:v]{cropf(s.get('crop'))}{fit(W, H)},setpts=(PTS-STARTPTS)/{sp},fps={FPS},"
-                      f"trim=duration={s['dur']},setpts=PTS-STARTPTS[s{k}]")
+                      f"trim=duration={s['dur']},setpts=PTS-STARTPTS{(',' + s['vf']) if s.get('vf') else ''}[s{k}]")
         n += 1
     elif s['type'] == 'freeze':
         cmd += ['-ss', str(s['at']), '-i', clip]
-        fc.append(f"[{n}:v]trim=end_frame=1,{cropf(s.get('crop'))}{fit(W, H)},loop=loop=-1:size=1,fps={FPS},"
-                  f"trim=duration={s['dur']},setpts=PTS-STARTPTS,"
-                  f"zoompan=z='min(1+0.03*on/{FPS},1.06)':d=1:s={W}x{H}:fps={FPS}[s{k}]")
+        if s.get('full'):
+            fc.append(f"[{n}:v]trim=end_frame=1,{cropf(s.get('crop'))}loop=loop=-1:size=1,fps={FPS},trim=duration={s['dur']},setpts=PTS-STARTPTS,"
+                      f"split[a{k}][b{k}];[a{k}]{fit(W, H)},boxblur=30:2,eq=brightness=-0.15[bg{k}];"
+                      f"[b{k}]scale={W}:-2,setsar=1[fg{k}];[bg{k}][fg{k}]overlay=0:(H-h)/2[s{k}]")
+        else:
+            fc.append(f"[{n}:v]trim=end_frame=1,{cropf(s.get('crop'))}{fit(W, H)},loop=loop=-1:size=1,fps={FPS},"
+                      f"trim=duration={s['dur']},setpts=PTS-STARTPTS,"
+                      f"zoompan=z='min(1+0.03*on/{FPS},1.06)':d=1:s={W}x{H}:fps={FPS}[s{k}]")
         n += 1
     elif s['type'] == 'split':
         parts = []
@@ -95,6 +100,26 @@ M = S['music']
 cmd += ['-ss', str(M.get('start', 0)), '-i', str(proj / M['file'])]
 fc.append(f"[{n}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{total},asetpts=PTS-STARTPTS,"
           f"volume={M.get('vol', 0.9)},afade=t=in:d=0.3,afade=t=out:st={total - 1.0:.2f}:d=1.0,loudnorm=I=-14:TP=-2[aout]")
+# ---- synthesized SFX (no licensing): clock ticks during thinking time, a hit + chime on each stamp ----
+sfx = []
+for b in S.get('timers', []):
+    k_ = 0
+    while b['at'] + k_ * 0.5 < b['end'] - 0.05:
+        sfx.append(('tick', b['at'] + k_ * 0.5)); k_ += 1
+for t_ in S['texts']:
+    if t_.get('stamp'):
+        sfx.append(('hit', t_['at']))
+if sfx:
+    expr = {'tick': "0.55*sin(2*PI*1800*t)*exp(-90*t)",
+            'hit': "0.9*sin(2*PI*55*t)*exp(-7*t)+0.35*sin(2*PI*880*t)*exp(-6*t)+0.2*sin(2*PI*1320*t)*exp(-8*t)"}
+    dur = {'tick': 0.08, 'hit': 0.9}
+    names = []
+    for i, (kind, at) in enumerate(sfx):
+        cmd += ['-f', 'lavfi', '-i', f"aevalsrc='{expr[kind]}':s=48000:d={dur[kind]}"]
+        fc.append(f"[{n + 1 + i}:a]aformat=channel_layouts=stereo,adelay={int(at * 1000)}:all=1[fx{i}]")
+        names.append(f"[fx{i}]")
+    fc[-len(sfx) - 1] = fc[-len(sfx) - 1].replace('[aout]', '[mus]')
+    fc.append('[mus]' + ''.join(names) + f"amix=inputs={len(sfx) + 1}:normalize=0:duration=first,alimiter=limit=0.8,volume=-2dB[aout]")
 cmd += ['-filter_complex', ';'.join(fc), '-map', '[vout]', '-map', '[aout]',
         '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p', '-r', str(FPS),
         '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-t', f'{total:.2f}', str(proj / S['out'])]
