@@ -25,3 +25,9 @@ Synthesized SFX (no licensing): clock ticks every 0.5 s during thinking time, lo
 limiter + headroom → ≈ −15 LUFS, −1.7 dBTP.
 Self-check rubric (aim ≥ 90): hook 15 · thinking time 10 · tell visibility 20 · accuracy 15 · pacing 10 ·
 visual quality 10 · ending/CTA/loop 10 · audio 10.
+
+## v3 feedback (wild animals) — `examples/real_or_ai_03_wild.spec.json`
+User: AI clips were too obvious; drop "ROUND n" labels/cards. Now: recent (id > 290 000) photoreal AI clips only,
+one theme per video (wild animals / faces / nature / city-tech), no round labels — a 0.45 s fade-in between rounds,
+reveal crop zoomed onto the tell (shark fin → spear, two polar bears → one head), REAL round = an old 4K clip that
+looks "too perfect".

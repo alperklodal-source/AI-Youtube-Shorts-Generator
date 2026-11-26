@@ -1,0 +1,265 @@
+{
+ "segments": [
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_82311.mp4",
+   "start": 1.0,
+   "dur": 1.2
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_82311.mp4",
+   "start": 2.2,
+   "dur": 2.6
+  },
+  {
+   "type": "freeze",
+   "clip": "clips/pixabay_video_82311.mp4",
+   "at": 4.75,
+   "dur": 3.2
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_82311.mp4",
+   "start": 4.8,
+   "dur": 3.0
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_360198.mp4",
+   "start": 0.0,
+   "dur": 2.4,
+   "vf": "fade=t=in:st=0:d=0.45"
+  },
+  {
+   "type": "freeze",
+   "clip": "clips/pixabay_video_360198.mp4",
+   "at": 2.35,
+   "dur": 3.2
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_360198.mp4",
+   "start": 1.6,
+   "dur": 3.2,
+   "speed": 0.8,
+   "full": true,
+   "crop": [
+    0.0,
+    0.3,
+    0.5,
+    0.68
+   ]
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_367132.mp4",
+   "start": 0.0,
+   "dur": 2.2,
+   "vf": "fade=t=in:st=0:d=0.45"
+  },
+  {
+   "type": "freeze",
+   "clip": "clips/pixabay_video_367132.mp4",
+   "at": 2.15,
+   "dur": 3.2
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_367132.mp4",
+   "start": 2.3,
+   "dur": 3.0,
+   "speed": 0.8,
+   "full": true,
+   "crop": [
+    0.3,
+    0.14,
+    0.4,
+    0.76
+   ]
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_82311.mp4",
+   "start": 1.0,
+   "dur": 2.6,
+   "vf": "fade=t=in:st=0:d=0.45"
+  }
+ ],
+ "texts": [
+  {
+   "at": 0,
+   "end": 1.2,
+   "style": "Big",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 880
+  },
+  {
+   "at": 0,
+   "end": 1.2,
+   "style": "Tag",
+   "lines": [
+    "3 WILD ANIMALS"
+   ],
+   "y": 1060
+  },
+  {
+   "at": 3.8,
+   "end": 7.0,
+   "style": "Q",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 880
+  },
+  {
+   "at": 3.9,
+   "end": 7.0,
+   "style": "Small",
+   "lines": [
+    "decide before the answer"
+   ],
+   "y": 1020
+  },
+  {
+   "at": 12.4,
+   "end": 15.6,
+   "style": "Q",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 880
+  },
+  {
+   "at": 12.5,
+   "end": 15.6,
+   "style": "Small",
+   "lines": [
+    "decide before the answer"
+   ],
+   "y": 1020
+  },
+  {
+   "at": 21.0,
+   "end": 24.2,
+   "style": "Q",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 880
+  },
+  {
+   "at": 21.1,
+   "end": 24.2,
+   "style": "Small",
+   "lines": [
+    "decide before the answer"
+   ],
+   "y": 1020
+  },
+  {
+   "at": 7.0,
+   "end": 10.0,
+   "style": "REAL",
+   "lines": [
+    "REAL"
+   ],
+   "y": 420,
+   "stamp": true
+  },
+  {
+   "at": 7.3,
+   "end": 10.0,
+   "style": "Tell",
+   "lines": [
+    "a real lion,",
+    "filmed in 4K"
+   ],
+   "y": 1500
+  },
+  {
+   "at": 15.6,
+   "end": 18.8,
+   "style": "AI",
+   "lines": [
+    "AI"
+   ],
+   "y": 420,
+   "stamp": true
+  },
+  {
+   "at": 15.9,
+   "end": 18.8,
+   "style": "Tell",
+   "lines": [
+    "watch the fin:",
+    "it stretches into a spear"
+   ],
+   "y": 1500
+  },
+  {
+   "at": 24.2,
+   "end": 27.2,
+   "style": "AI",
+   "lines": [
+    "AI"
+   ],
+   "y": 420,
+   "stamp": true
+  },
+  {
+   "at": 24.5,
+   "end": 27.2,
+   "style": "Tell",
+   "lines": [
+    "two bears\u2026",
+    "but only one head"
+   ],
+   "y": 1630
+  },
+  {
+   "at": 27.2,
+   "end": 29.8,
+   "style": "Big",
+   "lines": [
+    "how many",
+    "did you get?"
+   ],
+   "y": 860
+  },
+  {
+   "at": 27.5,
+   "end": 29.8,
+   "style": "Small",
+   "lines": [
+    "comment your score: 0/3 to 3/3"
+   ],
+   "y": 1080
+  }
+ ],
+ "timers": [
+  {
+   "at": 3.8,
+   "end": 7.0,
+   "y": 1110
+  },
+  {
+   "at": 12.4,
+   "end": 15.6,
+   "y": 1110
+  },
+  {
+   "at": 21.0,
+   "end": 24.2,
+   "y": 1110
+  }
+ ],
+ "music": {
+  "file": "music/suspense_mystery_leberch.mp3",
+  "start": 0,
+  "vol": 0.9
+ },
+ "out": "out/real_or_ai_03_wild.mp4"
+}
