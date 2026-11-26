@@ -31,3 +31,11 @@ User: AI clips were too obvious; drop "ROUND n" labels/cards. Now: recent (id > 
 one theme per video (wild animals / faces / nature / city-tech), no round labels — a 0.45 s fade-in between rounds,
 reveal crop zoomed onto the tell (shark fin → spear, two polar bears → one head), REAL round = an old 4K clip that
 looks "too perfect".
+
+## Near-identical twins (user: "side by side, so close it's hard to tell") — `examples/which_one_is_ai_02_twins.spec.json`
+Take one frame of a real clip (at the clip's start time) and turn it into video with DepthFlow's depth model
+(`df_drift.py`: slow push-in + gentle drift; `DF_STRENGTH` 0.3 for static shots, 1.0 for drone shots), rendered at
+1080×958 so it lines up with the real half. Both halves start on the same frame → near-identical.
+Tell = nothing in the scene is alive (balloons don't drift, water sparkle frozen, fog doesn't move).
+`render_whichai.py`: `round_tags: false`, fade between rounds, tick/hit SFX, boxed tell text. Description states
+honestly that the AI half was generated from a single frame.

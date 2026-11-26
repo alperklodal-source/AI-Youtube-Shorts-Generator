@@ -1,0 +1,78 @@
+{
+ "round_tags": false,
+ "hook": {
+  "dur": 1.2,
+  "lines": [
+   "one of these is AI"
+  ]
+ },
+ "rounds": [
+  {
+   "top": {
+    "clip": "clips/pixabay_video_77137.mp4",
+    "start": 4.0
+   },
+   "bottom": {
+    "clip": "clips/ai_77137.mp4",
+    "start": 0,
+    "ai": true
+   },
+   "play": 2.6,
+   "think": 3.2,
+   "reveal": 3.2,
+   "tell": [
+    "the balloons never move,",
+    "only the camera does"
+   ]
+  },
+  {
+   "top": {
+    "clip": "clips/ai_47496.mp4",
+    "start": 0,
+    "ai": true
+   },
+   "bottom": {
+    "clip": "clips/pixabay_video_47496.mp4",
+    "start": 2.0
+   },
+   "play": 2.6,
+   "think": 3.2,
+   "reveal": 3.2,
+   "tell": [
+    "the sparkles on the water",
+    "are frozen"
+   ]
+  },
+  {
+   "top": {
+    "clip": "clips/pixabay_video_136185.mp4",
+    "start": 4.0
+   },
+   "bottom": {
+    "clip": "clips/ai_136185.mp4",
+    "start": 0,
+    "ai": true
+   },
+   "play": 2.6,
+   "think": 3.2,
+   "reveal": 3.2,
+   "tell": [
+    "the fog never drifts"
+   ]
+  }
+ ],
+ "end": {
+  "dur": 2.6,
+  "lines": [
+   "how many",
+   "did you get?"
+  ],
+  "sub": "comment your score: 0/3 to 3/3"
+ },
+ "music": {
+  "file": "music/suspense_mystery_leberch.mp3",
+  "start": 0,
+  "vol": 0.9
+ },
+ "out": "out/which_one_is_ai_02.mp4"
+}

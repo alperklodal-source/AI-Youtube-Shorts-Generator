@@ -1,0 +1,15 @@
+TITLE:
+One of these is AI… they look IDENTICAL 🤯 #shorts
+
+DESCRIPTION:
+Each pair is the same scene: one is real footage, the other was created by AI from a single still frame of it.
+Decide before the answer, then comment your score (0/3 – 3/3).
+1. Balloons – B is AI: the balloons never move, only the camera does.
+2. Lake – A is AI: the sparkles on the water are frozen.
+3. Fog – B is AI: the fog never drifts.
+Tip: AI "photo-to-video" moves the camera, but nothing in the scene is alive.
+
+#ai #realorai #aivideo #quiz #shorts
+
+Real footage: Pixabay. AI versions: generated from one frame with a depth-estimation model (Depth Anything / DepthFlow).
+Music: "Suspense Mystery" by leberch (Pixabay).
