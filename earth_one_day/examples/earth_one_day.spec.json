@@ -1,0 +1,159 @@
+{
+ "shots": [
+  {
+   "clip": "clips/pixabay_video_211700.mp4",
+   "start": 2,
+   "dur": 3.6
+  },
+  {
+   "clip": "clips/pixabay_video_21175.mp4",
+   "start": 1,
+   "dur": 1.6
+  },
+  {
+   "clip": "clips/pixabay_video_30218.mp4",
+   "start": 10,
+   "dur": 1.6
+  },
+  {
+   "clip": "clips/pixabay_video_264272.mp4",
+   "start": 3,
+   "dur": 1.7
+  },
+  {
+   "clip": "clips/pixabay_video_364514.mp4",
+   "start": 5,
+   "dur": 1.7
+  },
+  {
+   "clip": "clips/pixabay_video_152085.mp4",
+   "start": 3,
+   "dur": 1.6
+  },
+  {
+   "clip": "clips/pixabay_video_7723.mp4",
+   "start": 3,
+   "dur": 3.2
+  },
+  {
+   "clip": "clips/pixabay_video_220942.mp4",
+   "start": 4,
+   "dur": 1.4
+  },
+  {
+   "clip": "clips/earth_day.mp4",
+   "start": 0,
+   "dur": 2.6
+  }
+ ],
+ "clock": [
+  [
+   1.8,
+   0
+  ],
+  [
+   3.6,
+   14083
+  ],
+  [
+   5.2,
+   40725
+  ],
+  [
+   6.8,
+   76162
+  ],
+  [
+   8.5,
+   81823
+  ],
+  [
+   10.2,
+   85144
+  ],
+  [
+   11.8,
+   86340
+  ],
+  [
+   13.4,
+   86394.3
+  ],
+  [
+   15.2,
+   86399.9
+  ]
+ ],
+ "tenths_after": 11.8,
+ "hook": {
+  "end": 1.8,
+  "lines": [
+   "if Earth's history",
+   "was one day\u2026"
+  ]
+ },
+ "events": [
+  {
+   "at": 1.8,
+   "end": 3.6,
+   "title": "Earth is born",
+   "sub": "4.5 billion years ago"
+  },
+  {
+   "at": 3.6,
+   "end": 5.2,
+   "title": "first life",
+   "sub": "3.8 billion years ago"
+  },
+  {
+   "at": 5.2,
+   "end": 6.8,
+   "title": "oxygen fills the air",
+   "sub": "2.4 billion years ago"
+  },
+  {
+   "at": 6.8,
+   "end": 8.5,
+   "title": "animals appear",
+   "sub": "540 million years ago"
+  },
+  {
+   "at": 8.5,
+   "end": 10.2,
+   "title": "dinosaurs rule",
+   "sub": "230 million years ago"
+  },
+  {
+   "at": 10.2,
+   "end": 11.8,
+   "title": "an asteroid ends them",
+   "sub": "66 million years ago"
+  },
+  {
+   "at": 13.4,
+   "end": 15.2,
+   "title": "humans appear",
+   "sub": "300,000 years ago"
+  },
+  {
+   "at": 15.2,
+   "end": 16.6,
+   "title": "all of human history",
+   "sub": "the last 0.1 seconds"
+  }
+ ],
+ "finale": {
+  "at": 16.6,
+  "lines": [
+   "we've been here",
+   "for 6 seconds."
+  ]
+ },
+ "music": {
+  "file": "music/orchestral_atlasaudio.mp3",
+  "start": 4.37,
+  "vol": 0.9,
+  "credit": "Orchestral \u2013 AtlasAudio (Pixabay)"
+ },
+ "out": "out/earth_history_one_day.mp4"
+}
