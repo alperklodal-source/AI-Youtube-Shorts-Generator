@@ -23,25 +23,50 @@
   {
    "clip": "clips/pixabay_video_384790.mp4",
    "start": 1,
-   "dur": 0.85,
-   "text": "COMMENT YOUR GUESS"
+   "dur": 0.9,
+   "text": "GUESS THE PLACE"
   },
   {
    "clip": "clips/pixabay_video_383986.mp4",
    "start": 1,
-   "dur": 0.95,
-   "text": "COMMENT YOUR GUESS"
+   "dur": 0.9,
+   "text": "GUESS THE PLACE"
   },
   {
    "clip": "clips/pixabay_video_384792.mp4",
    "start": 1,
    "dur": 1.4,
+   "text": "GUESS THE PLACE"
+  },
+  {
+   "clip": "clips/pixabay_video_386883.mp4",
+   "start": 1,
+   "dur": 1.35,
+   "text": "COMMENT YOUR GUESS"
+  },
+  {
+   "clip": "clips/pixabay_video_385349.mp4",
+   "start": 1,
+   "dur": 1.3,
+   "text": "COMMENT YOUR GUESS"
+  },
+  {
+   "clip": "clips/pixabay_video_93714.mp4",
+   "start": 5,
+   "dur": 1.3,
+   "text": "COMMENT YOUR GUESS"
+  },
+  {
+   "clip": "clips/pixabay_video_93718.mp4",
+   "start": 5,
+   "dur": 1.3,
    "text": "COMMENT YOUR GUESS"
   },
   {
    "clip": "clips/pixabay_video_384789.mp4",
    "start": 5.3,
-   "dur": 1.75
+   "dur": 1.4,
+   "text": "COMMENT YOUR GUESS"
   }
  ],
  "out": "out/faroe_islands_short.mp4",
@@ -55,7 +80,8 @@
   "start": 2.5,
   "intro_vol": 0.6,
   "bed_vol": 0.16,
-  "credit": "Ambient Calm \u2013 AtlasAudio (Pixabay)"
+  "credit": "Ambient Calm \u2013 AtlasAudio (Pixabay)",
+  "outro_vol": 0.6
  },
  "captions_until": 7.0,
  "overlays": [
@@ -69,13 +95,14 @@
    ]
   },
   {
-   "at": 7.3,
+   "at": 6.95,
    "style": "Reveal",
    "lines": [
-    "FAROE",
-    "ISLANDS"
+    "WHERE",
+    "IS THIS?"
    ],
    "pop": true
   }
- ]
+ ],
+ "voice_until": 6.15
 }

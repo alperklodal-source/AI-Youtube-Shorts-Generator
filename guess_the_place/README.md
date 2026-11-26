@@ -10,10 +10,11 @@ Global English channel. Every shot is a real stock video clip (no stills).
 | 4. Word timings | `words.py audio/brian.wav` then `compact.py audio/brian.wav audio/brianc.wav 0.28` (cut long pauses) | faster-whisper `small.en` |
 | 5. Render | `render_short.py PROJECT` (reads `PROJECT/spec.json`) | ffmpeg + libass, 1080×1920 30 fps, -14 LUFS |
 
-Format (retention-first): ~0.8 s landscape intro + ambient music (Pixabay Music via OpenMontage `pixabay_music`,
-ducked under the voice) with "GUESS THE PLACE" on screen from frame 0 → hook ("Only one percent can guess this place")
-→ three clues, hardest to easiest, no "hint" word, no countdown → ANSWER LAST (pop title) → ends on the opening
-shot so the loop is seamless. Cut every ~1–1.5 s, pauses ≤0.3 s, total ≤10 s. See `examples/`.
+Format (comment-first, ~13–14 s): ~0.8 s landscape intro + ambient music with "GUESS THE PLACE" on screen →
+hook ("Only one percent can guess this place") → three spoken clues, hardest to easiest (no "hint", no countdown)
+→ NO ANSWER: music swells into a 5-shot landscape montage with "WHERE IS THIS?" + "COMMENT YOUR GUESS" →
+ends on the opening shot (seamless loop). Title/description never name the place; the answer goes in a pinned
+comment ~24 h later. Spec keys: `voice_until` (cut narration), `music.outro_vol`. See `examples/`.
 
 Setup (paths assumed by the scripts): OpenMontage at `/home/user/tools/OpenMontage` (`make setup`, keys in its git-ignored `.env`:
 `PIXABAY_API_KEY`, `COVERR_API_KEY`), VoiceStudio at `/home/user/VoiceStudio`, a venv at `/home/user/tools/voice-env`

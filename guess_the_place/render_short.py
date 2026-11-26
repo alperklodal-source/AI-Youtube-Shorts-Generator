@@ -96,11 +96,14 @@ fc.append(''.join(f"[v{i}]" for i in range(vi)) + f"concat=n={vi}:v=1:a=0,eq=con
 pa, pz = S.get('pause_after', 1e4), S.get('pause', 0)
 fc.append(f"[{vi}:a]aresample=48000,asplit=2[a1][a2];[a1]atrim=0:{pa},asetpts=PTS-STARTPTS[p1];"
           f"[a2]atrim={pa},asetpts=PTS-STARTPTS,adelay={int(pz * 1000)}:all=1[p2];"
-          f"[p1][p2]concat=n=2:v=0:a=1,adelay={int(VD * 1000)}:all=1,loudnorm=I=-14:TP=-2,apad,atrim=0:{total}[voice]")
+          f"[p1][p2]concat=n=2:v=0:a=1,atrim=0:{S.get('voice_until', 1e4)},afade=t=out:st={S.get('voice_until', 1e4) - 0.08}:d=0.08,adelay={int(VD * 1000)}:all=1,loudnorm=I=-14:TP=-2,apad,atrim=0:{total}[voice]")
 if M:
     vin, vbed = M.get('intro_vol', 0.6), M.get('bed_vol', 0.16)
+    VE = VD + S.get('voice_until', 1e4)  # when narration ends
     fc.append(f"[{vi + 1}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{total},asetpts=PTS-STARTPTS,"
-              f"volume='if(lt(t,{VD}),{vin},{vin}+({vbed}-{vin})*min(1,(t-{VD})/0.4))':eval=frame,"
+              # loud intro -> ducked under voice -> back up for the music-only montage after the voice ends
+              f"volume='if(lt(t,{VD}),{vin},if(lt(t,{VE}),{vin}+({vbed}-{vin})*min(1,(t-{VD})/0.4),"
+              f"{vbed}+({M.get('outro_vol', vin)}-{vbed})*min(1,(t-{VE})/0.6)))':eval=frame,"
               f"afade=t=in:d=0.3,afade=t=out:st={total - 0.7}:d=0.7[mus]")
     fc.append("[voice]aformat=channel_layouts=stereo[vo];[vo][mus]amix=inputs=2:normalize=0:duration=first,"
               f"alimiter=limit=0.89[aout]")
