@@ -1,19 +1,19 @@
 {
- "voice": "audio/v1.wav",
- "words": "audio/v1.words.json",
- "pause_after": 4.48,
+ "voice": "audio/brian.wav",
+ "words": "audio/brian.words.json",
+ "pause_after": 4.35,
  "pause": 1.2,
  "shots": [
   {
    "clip": "clips/pixabay_video_384789.mp4",
    "start": 0,
-   "dur": 2.5,
+   "dur": 2.4,
    "text": "GUESS THE PLACE"
   },
   {
    "clip": "clips/pixabay_video_384792.mp4",
    "start": 1,
-   "dur": 2.0,
+   "dur": 1.95,
    "text": "GUESS THE PLACE"
   },
   {
@@ -25,7 +25,7 @@
   {
    "clip": "clips/pixabay_video_384789.mp4",
    "start": 4.5,
-   "dur": 1.5
+   "dur": 1.55
   },
   {
    "clip": "clips/pixabay_video_337420.mp4",
@@ -33,13 +33,13 @@
    "dur": 1.9
   }
  ],
- "countdown_at": 4.5,
+ "countdown_at": 4.4,
  "reveal": {
-  "at": 5.9,
+  "at": 5.75,
   "title": "FAROE ISLANDS"
  },
  "fact": {
-  "at": 7.4,
+  "at": 7.3,
   "lines": [
    "70,000 SHEEP",
    "54,000 PEOPLE"

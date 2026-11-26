@@ -52,7 +52,8 @@ for gi, g in enumerate(groups):  # active word highlighted yellow
     for i, w in enumerate(g):
         end = g[i + 1]['s'] if i + 1 < len(g) else min(w['e'] + 0.15, nxt)
         txt = ' '.join((r"{\c&H00E5FF&}" + x['w'].upper() + r"{\c&HFFFFFF&}") if j == i else x['w'].upper() for j, x in enumerate(g))
-        ass.append(f"Dialogue: 0,{ts(w['s'])},{ts(end)},Cap,,0,0,0,,{{\\fad(40,0)}}{txt}")
+        fx = r"{\fad(60,0)}" if i == 0 else ""  # fade only when a new group appears
+        ass.append(f"Dialogue: 0,{ts(w['s'])},{ts(end)},Cap,,0,0,0,,{fx}{txt}")
 t = 0
 for s in S['shots']:
     if s.get('text'):
