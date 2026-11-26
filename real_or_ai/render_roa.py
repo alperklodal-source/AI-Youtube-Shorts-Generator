@@ -73,8 +73,15 @@ ass = ["[Script Info]", "ScriptType: v4.00+", f"PlayResX: {W}", f"PlayResY: {H}"
        "Style: AI,Inter Black,170,&H00FFFFFF,&H00FFFFFF,&H003C3CE6,&H003C3CE6,1,0,0,0,100,100,6,0,3,26,0,5,40,40,0,1",
        "Style: REAL,Inter Black,170,&H00FFFFFF,&H00FFFFFF,&H0050B428,&H0050B428,1,0,0,0,100,100,6,0,3,26,0,5,40,40,0,1",
        "Style: Tell,Inter Bold,60,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,1,0,0,0,100,100,0,0,1,0,6,5,70,70,0,1",
+       "Style: Bar,Arial,20,&H00FFFFFF,&H00FFFFFF,&HFFFFFFFF,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1",
+       "Style: BarBg,Arial,20,&HB0FFFFFF,&HB0FFFFFF,&HFFFFFFFF,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1",
        "Style: Small,Inter SemiBold,48,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0,0,1,0,5,5,60,60,0,1",
        "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"]
+BW, BH = 600, 14
+for b in S.get('timers', []):  # draining "thinking time" bar under the question
+    a, e = b['at'], b['end']; ms = int((e - a) * 1000); x0, y = W // 2 - BW // 2, b.get('y', 1130)
+    ass.append(f"Dialogue: 3,{ts(a)},{ts(e)},BarBg,,0,0,0,,{{\\pos({x0},{y})\\an7\\p1}}m 0 0 l {BW} 0 {BW} {BH} 0 {BH}")
+    ass.append(f"Dialogue: 4,{ts(a)},{ts(e)},Bar,,0,0,0,,{{\\pos({x0},{y})\\an7\\t(0,{ms},\\fscx0)\\p1}}m 0 0 l {BW} 0 {BW} {BH} 0 {BH}")
 for t in S['texts']:
     fx = t.get('fx', r"\fad(120,120)")
     if t.get('stamp'):

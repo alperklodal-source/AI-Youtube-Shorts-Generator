@@ -1,0 +1,80 @@
+{
+ "hook": {
+  "dur": 1.2,
+  "lines": [
+   "one of these is AI"
+  ]
+ },
+ "rounds": [
+  {
+   "top": {
+    "clip": "clips/pixabay_video_180135.mp4",
+    "start": 0,
+    "ai": true
+   },
+   "bottom": {
+    "clip": "clips/pixabay_video_120522.mp4",
+    "start": 1
+   },
+   "play": 2.6,
+   "think": 3.2,
+   "reveal": 3.0,
+   "tell": [
+    "the fur looks painted:",
+    "no single hairs"
+   ]
+  },
+  {
+   "top": {
+    "clip": "clips/pixabay_video_102422.mp4",
+    "start": 2
+   },
+   "bottom": {
+    "clip": "clips/pixabay_video_342414.mp4",
+    "start": 0.6,
+    "ai": true,
+    "tell_start": 3.8,
+    "tell_speed": 0.6
+   },
+   "play": 2.6,
+   "think": 3.2,
+   "reveal": 3.2,
+   "tell": [
+    "watch the ear\u2026 and the goat",
+    "appearing behind it"
+   ]
+  },
+  {
+   "top": {
+    "clip": "clips/pixabay_video_383631.mp4",
+    "start": 0,
+    "ai": true
+   },
+   "bottom": {
+    "clip": "clips/pixabay_video_34091.mp4",
+    "start": 2
+   },
+   "play": 1.7,
+   "think": 3.2,
+   "reveal": 3.2,
+   "tell": [
+    "watch the arm:",
+    "a tattoo appears"
+   ]
+  }
+ ],
+ "end": {
+  "dur": 2.6,
+  "lines": [
+   "how many",
+   "did you get?"
+  ],
+  "sub": "comment your score: 0/3 to 3/3"
+ },
+ "music": {
+  "file": "music/suspense_mystery_leberch.mp3",
+  "start": 0,
+  "vol": 0.9
+ },
+ "out": "out/which_one_is_ai_01.mp4"
+}
