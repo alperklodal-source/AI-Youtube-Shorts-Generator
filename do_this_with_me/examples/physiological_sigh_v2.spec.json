@@ -1,0 +1,120 @@
+{
+ "shots": [
+  {
+   "clip": "clips/pixabay_video_28975.mp4",
+   "start": 2,
+   "dur": 9.0
+  },
+  {
+   "clip": "clips/pixabay_video_21175.mp4",
+   "start": 1,
+   "dur": 11.0
+  },
+  {
+   "clip": "clips/pixabay_video_21209.mp4",
+   "start": 5,
+   "dur": 11.1
+  }
+ ],
+ "music": {
+  "file": "music/soft_piano_atlasaudio.mp3",
+  "start": 0,
+  "vol": 0.8,
+  "credit": "Soft Piano \u2013 AtlasAudio (Pixabay)"
+ },
+ "intro": [
+  {
+   "at": 0.0,
+   "end": 1.6,
+   "lines": [
+    "feeling anxious?"
+   ]
+  },
+  {
+   "at": 1.6,
+   "end": 3.2,
+   "lines": [
+    "try this",
+    "20-second",
+    "breathing trick"
+   ]
+  }
+ ],
+ "howto": {
+  "at": 3.2,
+  "end": 7.4,
+  "header": "HOW IT WORKS",
+  "gap": 0.8,
+  "steps": [
+   "Breathe in through your nose",
+   "Take one more short sip",
+   "Breathe out slowly"
+  ],
+  "footer": "let's do it together"
+ },
+ "name": "the physiological sigh",
+ "rounds": [
+  [
+   {
+    "dur": 2,
+    "scale": 0.85,
+    "big": "INHALE",
+    "sub": "through your nose"
+   },
+   {
+    "dur": 1,
+    "scale": 1.0,
+    "big": "ONE MORE SIP",
+    "sub": "a short extra breath in"
+   },
+   {
+    "dur": 6,
+    "scale": 0.42,
+    "big": "EXHALE",
+    "sub": "slowly through your mouth"
+   }
+  ],
+  [
+   {
+    "dur": 2,
+    "scale": 0.85,
+    "big": "INHALE",
+    "sub": "through your nose"
+   },
+   {
+    "dur": 1,
+    "scale": 1.0,
+    "big": "ONE MORE SIP",
+    "sub": "a short extra breath in"
+   },
+   {
+    "dur": 6,
+    "scale": 0.42,
+    "big": "EXHALE",
+    "sub": "slowly through your mouth"
+   }
+  ]
+ ],
+ "start": 7.6,
+ "round_gap": 0.2,
+ "base_scale": 0.42,
+ "outro": [
+  {
+   "at": 26.1,
+   "end": 29.5,
+   "lines": [
+    "how do you feel now?"
+   ]
+  },
+  {
+   "at": 26.6,
+   "end": 29.5,
+   "style": "Sub",
+   "y": 1100,
+   "lines": [
+    "save this for when you need it"
+   ]
+  }
+ ],
+ "out": "out/breathe_physiological_sigh.mp4"
+}
