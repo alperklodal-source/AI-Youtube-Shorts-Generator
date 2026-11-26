@@ -12,3 +12,6 @@ Contrast variant (`examples/pov_left_the_city.spec.json`): 6 fast city shots (0.
 `vf`) → 5 slow nature shots (~2 s, warm). Text in the lower third so it never covers faces.
 Music via the YouTube Shorts library is licensed: no claim, video stays monetised; YouTube routes half of that Short's
 creator-pool revenue (one track) to music partners, the creator's 45 % share is unchanged.
+
+Night variant (`examples/pov_3am_city.spec.json`): 7 slow (~2 s) empty-city night shots, cool grade. Pixabay AI tells:
+5 s clips at 3872×2160, "cinematic/cyberpunk/moody" tags, near-static frames with a rain overlay — reject them.
