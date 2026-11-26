@@ -1,0 +1,288 @@
+{
+ "segments": [
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_342414.mp4",
+   "start": 0,
+   "dur": 1.0
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_342414.mp4",
+   "start": 1.0,
+   "dur": 2.8
+  },
+  {
+   "type": "freeze",
+   "clip": "clips/pixabay_video_342414.mp4",
+   "at": 3.75,
+   "dur": 1.6
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_342414.mp4",
+   "start": 3.8,
+   "dur": 3.0,
+   "speed": 0.6,
+   "full": true
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_10480.mp4",
+   "start": 3,
+   "dur": 2.8
+  },
+  {
+   "type": "freeze",
+   "clip": "clips/pixabay_video_10480.mp4",
+   "at": 5.75,
+   "dur": 1.6
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_10480.mp4",
+   "start": 5.8,
+   "dur": 2.2
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_383631.mp4",
+   "start": 0,
+   "dur": 1.8
+  },
+  {
+   "type": "freeze",
+   "clip": "clips/pixabay_video_383631.mp4",
+   "at": 1.75,
+   "dur": 1.6
+  },
+  {
+   "type": "split",
+   "clip": "clips/pixabay_video_383631.mp4",
+   "at": [
+    0.3,
+    2.5
+   ],
+   "crop": [
+    0.14,
+    0,
+    0.36,
+    0.5
+   ],
+   "dur": 3.0
+  },
+  {
+   "type": "play",
+   "clip": "clips/pixabay_video_342414.mp4",
+   "start": 0,
+   "dur": 2.4
+  }
+ ],
+ "texts": [
+  {
+   "at": 0,
+   "end": 1.0,
+   "style": "Big",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 880
+  },
+  {
+   "at": 0,
+   "end": 1.0,
+   "style": "Tag",
+   "lines": [
+    "3 ROUNDS"
+   ],
+   "y": 1060
+  },
+  {
+   "at": 1.0,
+   "end": 5.4,
+   "style": "Tag",
+   "lines": [
+    "ROUND 1/3"
+   ],
+   "y": 250
+  },
+  {
+   "at": 8.4,
+   "end": 12.8,
+   "style": "Tag",
+   "lines": [
+    "ROUND 2/3"
+   ],
+   "y": 250
+  },
+  {
+   "at": 15.0,
+   "end": 18.4,
+   "style": "Tag",
+   "lines": [
+    "ROUND 3/3"
+   ],
+   "y": 250
+  },
+  {
+   "at": 3.8,
+   "end": 5.4,
+   "style": "Q",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 880
+  },
+  {
+   "at": 3.9,
+   "end": 5.4,
+   "style": "Small",
+   "lines": [
+    "decide before the answer"
+   ],
+   "y": 1020
+  },
+  {
+   "at": 11.2,
+   "end": 12.8,
+   "style": "Q",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 880
+  },
+  {
+   "at": 11.3,
+   "end": 12.8,
+   "style": "Small",
+   "lines": [
+    "decide before the answer"
+   ],
+   "y": 1020
+  },
+  {
+   "at": 16.8,
+   "end": 18.4,
+   "style": "Q",
+   "lines": [
+    "REAL or AI?"
+   ],
+   "y": 880
+  },
+  {
+   "at": 16.9,
+   "end": 18.4,
+   "style": "Small",
+   "lines": [
+    "decide before the answer"
+   ],
+   "y": 1020
+  },
+  {
+   "at": 5.4,
+   "end": 8.4,
+   "style": "AI",
+   "lines": [
+    "AI"
+   ],
+   "y": 420,
+   "stamp": true
+  },
+  {
+   "at": 5.7,
+   "end": 8.4,
+   "style": "Tell",
+   "lines": [
+    "watch the right ear\u2026",
+    "and the goat that appears",
+    "out of nowhere"
+   ],
+   "y": 1520
+  },
+  {
+   "at": 12.8,
+   "end": 15.0,
+   "style": "REAL",
+   "lines": [
+    "REAL"
+   ],
+   "y": 480,
+   "stamp": true
+  },
+  {
+   "at": 13.1,
+   "end": 15.0,
+   "style": "Tell",
+   "lines": [
+    "real jellyfish,",
+    "filmed in an aquarium"
+   ],
+   "y": 1460
+  },
+  {
+   "at": 18.4,
+   "end": 21.4,
+   "style": "Tag",
+   "lines": [
+    "AT 0.3 SECONDS"
+   ],
+   "y": 90
+  },
+  {
+   "at": 18.4,
+   "end": 21.4,
+   "style": "Tag",
+   "lines": [
+    "AT 2.5 SECONDS"
+   ],
+   "y": 1050
+  },
+  {
+   "at": 18.4,
+   "end": 21.4,
+   "style": "AI",
+   "lines": [
+    "AI"
+   ],
+   "y": 1470,
+   "stamp": true,
+   "layer": 4
+  },
+  {
+   "at": 18.7,
+   "end": 21.4,
+   "style": "Tell",
+   "lines": [
+    "the tattoo appears",
+    "out of nowhere"
+   ],
+   "y": 1700
+  },
+  {
+   "at": 21.4,
+   "end": 23.8,
+   "style": "Big",
+   "lines": [
+    "how many",
+    "did you get?"
+   ],
+   "y": 860
+  },
+  {
+   "at": 21.7,
+   "end": 23.8,
+   "style": "Small",
+   "lines": [
+    "comment your score: 0/3, 1/3, 2/3 or 3/3"
+   ],
+   "y": 1080
+  }
+ ],
+ "music": {
+  "file": "music/suspense_mystery_leberch.mp3",
+  "start": 0,
+  "vol": 0.9,
+  "credit": "Suspense Mystery \u2013 leberch (Pixabay)"
+ },
+ "out": "out/real_or_ai_01.mp4"
+}
