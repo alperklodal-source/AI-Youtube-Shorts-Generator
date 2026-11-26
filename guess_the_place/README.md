@@ -10,7 +10,7 @@ Global English channel. Every shot is a real stock video clip (no stills).
 | 4. Word timings | `words.py audio/v1.wav` | faster-whisper `small.en` |
 | 5. Render | `render_short.py PROJECT` (reads `PROJECT/spec.json`) | ffmpeg + libass, 1080×1920 30 fps, -14 LUFS |
 
-Format: hook (0–2 s) → two spoken clues (no "hint" word, no countdown) → short pause → reveal title → one verified fact. Max ~10 s. See `examples/`.
+Format: ~1 s landscape-only intro with ambient music (Pixabay Music via OpenMontage `pixabay_music`, ducked under the voice) → hook → two spoken clues (no "hint" word, no countdown) → short pause → reveal title → one verified fact. Max ~10 s. See `examples/`.
 
 Setup (paths assumed by the scripts): OpenMontage at `/home/user/tools/OpenMontage` (`make setup`, keys in its git-ignored `.env`:
 `PIXABAY_API_KEY`, `COVERR_API_KEY`), VoiceStudio at `/home/user/VoiceStudio`, a venv at `/home/user/tools/voice-env`

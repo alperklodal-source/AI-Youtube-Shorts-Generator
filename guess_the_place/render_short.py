@@ -28,9 +28,11 @@ def ts(t):
 words = json.load(open(proj / S['words']))
 for w in words:  # fix ASR spellings, e.g. "1" -> "one"
     w['w'] = S.get('fix', {}).get(w['w'], w['w'])
-for w in words:  # shift words after the inserted pause
-    if w['s'] >= S['pause_after']:
-        w['s'] += S['pause']; w['e'] += S['pause']
+VD = S.get('voice_delay', 0.0)  # seconds of landscape + music before narration
+for w in words:  # shift words after the inserted pause, then by the intro
+    if w['s'] >= S.get('pause_after', 1e9):
+        w['s'] += S.get('pause', 0); w['e'] += S.get('pause', 0)
+    w['s'] += VD; w['e'] += VD
 groups, cur = [], []
 for w in words:
     cur.append(w)
@@ -77,16 +79,28 @@ for s in S['shots']:
     cmd += ['-ss', str(s['start']), '-t', str(s['dur']), '-i', str(proj / s['clip'])]
 vi = len(S['shots'])
 cmd += ['-i', str(proj / S['voice'])]
+M = S.get('music')
+if M:
+    cmd += ['-ss', str(M.get('start', 0)), '-i', str(proj / M['file'])]
 fc = []
 for i, s in enumerate(S['shots']):
     fc.append(f"[{i}:v]fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,"
               f"trim=duration={s['dur']},setpts=PTS-STARTPTS[v{i}]")
 fc.append(''.join(f"[v{i}]" for i in range(vi)) + f"concat=n={vi}:v=1:a=0,eq=contrast=1.06:saturation=1.12,"
           f"ass={proj / 'out' / 'subs.ass'}[vout]")
-pa, pz = S['pause_after'], S['pause']
-fc.append(f"[{vi}:a]asplit=2[a1][a2];[a1]atrim=0:{pa},asetpts=PTS-STARTPTS[p1];"
+pa, pz = S.get('pause_after', 1e4), S.get('pause', 0)
+fc.append(f"[{vi}:a]aresample=48000,asplit=2[a1][a2];[a1]atrim=0:{pa},asetpts=PTS-STARTPTS[p1];"
           f"[a2]atrim={pa},asetpts=PTS-STARTPTS,adelay={int(pz * 1000)}:all=1[p2];"
-          f"[p1][p2]concat=n=2:v=0:a=1,loudnorm=I=-14:TP=-1.5,apad,atrim=0:{total}[aout]")
+          f"[p1][p2]concat=n=2:v=0:a=1,adelay={int(VD * 1000)}:all=1,loudnorm=I=-14:TP=-2,apad,atrim=0:{total}[voice]")
+if M:
+    vin, vbed = M.get('intro_vol', 0.6), M.get('bed_vol', 0.16)
+    fc.append(f"[{vi + 1}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{total},asetpts=PTS-STARTPTS,"
+              f"volume='if(lt(t,{VD}),{vin},{vin}+({vbed}-{vin})*min(1,(t-{VD})/0.4))':eval=frame,"
+              f"afade=t=in:d=0.3,afade=t=out:st={total - 0.7}:d=0.7[mus]")
+    fc.append("[voice]aformat=channel_layouts=stereo[vo];[vo][mus]amix=inputs=2:normalize=0:duration=first,"
+              f"alimiter=limit=0.89[aout]")
+else:
+    fc.append("[voice]anull[aout]")
 cmd += ['-filter_complex', ';'.join(fc), '-map', '[vout]', '-map', '[aout]',
         '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p', '-r', str(FPS),
         '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-t', str(total), str(proj / S['out'])]
