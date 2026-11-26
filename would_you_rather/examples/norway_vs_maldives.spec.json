@@ -1,0 +1,132 @@
+{
+ "voice": "audio/brian.wav",
+ "voice_delay": 0.25,
+ "music": {
+  "file": "music/epic_violin_cinematic_trtasfiq.mp3",
+  "start": 35.18,
+  "drop_at": 5.0,
+  "pre_vol": 0.4,
+  "post_vol": 1.0,
+  "credit": "Epic Violin Cinematic Instrumental Music \u2013 trtasfiq (Pixabay)"
+ },
+ "segments": [
+  {
+   "end": 2.63,
+   "top": [
+    "clips/pixabay_video_385518.mp4",
+    0
+   ],
+   "bottom": [
+    "clips/pixabay_video_221543.mp4",
+    0
+   ]
+  },
+  {
+   "end": 5.0,
+   "top": [
+    "clips/pixabay_video_36786.mp4",
+    0
+   ],
+   "bottom": [
+    "clips/pixabay_video_253907.mp4",
+    0
+   ]
+  },
+  {
+   "end": 6.58,
+   "top": [
+    "clips/pixabay_video_277842.mp4",
+    2
+   ],
+   "bottom": [
+    "clips/pixabay_video_219992.mp4",
+    2
+   ]
+  },
+  {
+   "end": 8.16,
+   "top": [
+    "clips/pixabay_video_36084.mp4",
+    5
+   ],
+   "bottom": [
+    "clips/pixabay_video_377587.mp4",
+    3
+   ]
+  },
+  {
+   "end": 9.74,
+   "top": [
+    "clips/pixabay_video_385518.mp4",
+    4
+   ],
+   "bottom": [
+    "clips/pixabay_video_279122.mp4",
+    4
+   ]
+  },
+  {
+   "end": 11.32,
+   "top": [
+    "clips/pixabay_video_36786.mp4",
+    3
+   ],
+   "bottom": [
+    "clips/pixabay_video_253907.mp4",
+    3
+   ]
+  },
+  {
+   "end": 13.7,
+   "top": [
+    "clips/pixabay_video_385518.mp4",
+    0
+   ],
+   "bottom": [
+    "clips/pixabay_video_221543.mp4",
+    0
+   ]
+  }
+ ],
+ "labels": {
+  "at": 3.5,
+  "top": "A \u00b7 NORWAY",
+  "top_sub": "Snowy peaks & northern lights",
+  "bottom": "B \u00b7 MALDIVES",
+  "bottom_sub": "Turquoise water & summer all year"
+ },
+ "texts": [
+  {
+   "at": 0.0,
+   "end": 2.6,
+   "text": "YOU CAN ONLY LIVE IN ONE"
+  },
+  {
+   "at": 2.6,
+   "end": 3.5,
+   "text": "FOREVER."
+  },
+  {
+   "at": 3.5,
+   "end": 5.0,
+   "text": "NORWAY OR MALDIVES?"
+  },
+  {
+   "at": 5.0,
+   "end": 11.32,
+   "text": "CHOOSE ONE"
+  },
+  {
+   "at": 11.32,
+   "text": "A OR B?",
+   "style": "Big",
+   "pop": true
+  },
+  {
+   "at": 11.6,
+   "text": "COMMENT YOUR CHOICE",
+   "y": 1270
+  }
+ ],
+ "out": "out/norway_vs_maldives.mp4"
+}
